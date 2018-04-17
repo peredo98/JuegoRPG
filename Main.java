@@ -13,6 +13,7 @@ public class Main extends Canvas implements Runnable{
 	public Main(){
 		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
 		handler = new Handler();
+		handler.addObject(new Player(100, 100, ID.Player));
 	}
 	public synchronized void start(){
 		thread = new Thread(this);
