@@ -3,11 +3,9 @@ public abstract class GameObject{
 	protected int x, y, velx, vely, imgx, imgy;
 	protected ID id;
 	
-	public GameObject(int x, int y, ID id, int imgx, int imgy){
+	public GameObject(int x, int y, ID id){
 		this.x = x;
 		this.y = y;
-		this.imgx = imgx;
-		this.imgy = imgy;
 		this.id = id;
 	}
 	

@@ -8,8 +8,8 @@ import java.io.IOException;
 public class Player extends GameObject{
 	private BufferedImage img = null;
 	
-	public Player(int x, int y, ID id, int imgx, int imgy){
-		super(x, y, id, imgx, imgy);
+	public Player(int x, int y, ID id){
+		super(x, y, id);
 	}
 
 
