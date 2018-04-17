@@ -1,14 +1,13 @@
 import java.awt.Graphics;
 public abstract class GameObject{
-	protected int x;
-	protected int y;
+	protected int x, y, velx, vely, imgx, imgy;
 	protected ID id;
-	protected int velx;
-	protected int vely;
 	
-	public GameObject(int x, int y, ID id){
+	public GameObject(int x, int y, ID id, int imgx, int imgy){
 		this.x = x;
 		this.y = y;
+		this.imgx = imgx;
+		this.imgy = imgy;
 		this.id = id;
 	}
 	
@@ -45,5 +44,18 @@ public abstract class GameObject{
 	}
 	public int getVely(){
 		return vely;
+	}
+
+	public void setImgx(int imgx){
+		this.imgx = imgx;
+	}
+	public int getImgx(){
+		return imgx;
+	}
+	public void setImgy(int imgy){
+		this.imgy = imgy;
+	}
+	public int getImgy(){
+		return imgy;
 	}
 }
