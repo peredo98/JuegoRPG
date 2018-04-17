@@ -7,8 +7,12 @@ public class Main extends Canvas implements Runnable{
 	public static final int height = 600;
 	private Thread thread;
 	private boolean running = false;
+
+	private Handler handler;
+
 	public Main(){
 		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
+		handler = new Handler();
 	}
 	public synchronized void start(){
 		thread = new Thread(this);
@@ -51,7 +55,7 @@ public class Main extends Canvas implements Runnable{
 		stop();
 	}
 	private void tick(){
-		
+		handler.tick();
 	}
 	private void render(){
 		BufferStrategy bs = this.getBufferStrategy();
@@ -60,9 +64,10 @@ public class Main extends Canvas implements Runnable{
 			return;
 		}
 		
-		
 		Graphics g = bs.getDrawGraphics();
 		
+		handler.render(g);
+
 		g.setColor(Color.black);
 		g.fillRect(0, 0, width, height);
 		

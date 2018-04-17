@@ -2,7 +2,7 @@ import java.awt.Graphics;
 
 public class Player extends GameObject{
 
-	public Player(){
+	public Player(int x, int y, ID id){
 		super(x, y, id);
 
 	}
@@ -12,6 +12,6 @@ public class Player extends GameObject{
 	}
 
 	public void render(Graphics g){
-		
+
 	}
 }
