@@ -9,7 +9,7 @@ public class Player extends GameObject{
 
 	public void tick(){
 		x += velx;
-		x += vely;
+		y += vely;
 	}
 
 	public void render(Graphics g){

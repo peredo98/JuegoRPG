@@ -11,9 +11,11 @@ public class Main extends Canvas implements Runnable{
 	private Handler handler;
 
 	public Main(){
-		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
-
 		handler = new Handler();
+
+		this.addKeyListener(new KeyInput(handler));
+
+		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
 
 		handler.addObject(new Player(100, 100, ID.Player));
 	}
