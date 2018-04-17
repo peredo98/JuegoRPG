@@ -10,6 +10,8 @@ public class Player extends GameObject{
 	
 	public Player(int x, int y, ID id){
 		super(x, y, id);
+		setImgx(48);
+		setImgy(0);
 	}
 
 
