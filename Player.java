@@ -1,5 +1,9 @@
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
 
 public class Player extends GameObject{
 
@@ -13,7 +17,11 @@ public class Player extends GameObject{
 	}
 
 	public void render(Graphics g){
-		g.setColor(Color.white);
-		g.fillRect(x, y, 50, 50);
+		BufferedImage img = null;
+		try {
+  			  img = ImageIO.read(new File("Sprites/Actor1.png"));
+		} 
+		catch (IOException e) {}
+		g.drawImage(img, x, y, 50, 50, null);
 	}
 }
