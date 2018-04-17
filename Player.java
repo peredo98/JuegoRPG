@@ -5,11 +5,11 @@ public class Player extends GameObject{
 
 	public Player(int x, int y, ID id){
 		super(x, y, id);
-
 	}
 
 	public void tick(){
-
+		x += velx;
+		x += vely;
 	}
 
 	public void render(Graphics g){

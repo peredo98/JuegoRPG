@@ -12,7 +12,9 @@ public class Main extends Canvas implements Runnable{
 
 	public Main(){
 		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
+
 		handler = new Handler();
+
 		handler.addObject(new Player(100, 100, ID.Player));
 	}
 	public synchronized void start(){
@@ -66,11 +68,11 @@ public class Main extends Canvas implements Runnable{
 		}
 		
 		Graphics g = bs.getDrawGraphics();
-		
-		handler.render(g);
 
 		g.setColor(Color.black);
 		g.fillRect(0, 0, width, height);
+
+		handler.render(g);
 		
 		g.dispose();
 		bs.show();
