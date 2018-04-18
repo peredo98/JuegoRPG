@@ -2,11 +2,19 @@ import java.awt.Graphics;
 public abstract class GameObject{
 	protected int x, y, velx, vely, imgx, imgy;
 	protected ID id;
+	protected String url;
 	
 	public GameObject(int x, int y, ID id){
 		this.x = x;
 		this.y = y;
 		this.id = id;
+	}
+
+	public GameObject(int x, int y, ID id, String url){
+		this.x = x;
+		this.y = y;
+		this.id = id;
+		this.url = url;
 	}
 	
 	public abstract void tick();
@@ -55,5 +63,11 @@ public abstract class GameObject{
 	}
 	public int getImgy(){
 		return imgy;
+	}
+	public void setUrl(String url){
+		this.url = url;
+	}
+	public String getUrl(){
+		return url;
 	}
 }

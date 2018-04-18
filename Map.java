@@ -4,27 +4,29 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class Player extends GameObject{
+public class Map extends GameObject{
 	private BufferedImage img = null;
 	
-	public Player(int x, int y, ID id){
-		super(x, y, id);
+	public Map(int x, int y, ID id, String url){
+		super(x, y, id, url);
 		setImgx(48);
 		setImgy(0);
 	}
 
 
 	public void tick(){
-
+		x += velx;
+		y += vely;
 	}
 
 	public void render(Graphics g){
 		try {
-  			  img = ImageIO.read(new File("Sprites/Actor1.png"));
+  			  img = ImageIO.read(new File(url));
 		} 
 		catch (IOException e) {
 		}
-		img = img.getSubimage(imgx, imgy, 48, 48);
-		g.drawImage(img, x, y, 48, 48, null);
+		g.drawImage(img, x, y, 1280, 960, null);
 	}
+
+
 }

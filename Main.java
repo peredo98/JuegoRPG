@@ -17,7 +17,9 @@ public class Main extends Canvas implements Runnable{
 
 		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
 
-		handler.addObject(new Player(100, 100, ID.Player));
+		handler.addObject(new Map(-260, -160, ID.Map, "MapImages/Map001.png"));
+		handler.addObject(new Player(width/2-48, height/2-48, ID.Player));
+		
 	}
 	public synchronized void start(){
 		thread = new Thread(this);
