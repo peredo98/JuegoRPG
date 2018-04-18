@@ -3,18 +3,29 @@ public abstract class GameObject{
 	protected int x, y, velx, vely, imgx, imgy;
 	protected ID id;
 	protected String url;
+	protected int upImgy, downImgy, leftImgy, rightImgy, anim1, anim2, anim3;
 	
-	public GameObject(int x, int y, ID id){
+	public GameObject(int x, int y, int imgx, int imgy, ID id, String url){
 		this.x = x;
 		this.y = y;
-		this.id = id;
-	}
-
-	public GameObject(int x, int y, ID id, String url){
-		this.x = x;
-		this.y = y;
+		this.imgx = imgx;
+		this.imgy = imgy;
 		this.id = id;
 		this.url = url;
+		this.downImgy = imgy;
+		this.leftImgy = imgy + 48;
+		this.rightImgy = imgy +96;
+		this.upImgy = imgy + 144;
+		this.anim1 = imgx - 48;
+		this.anim2 = imgx;
+		this.anim3 = imgx + 48;
+	}
+
+	public GameObject(int x, int y, String url){
+		this.x = x;
+		this.y = y;
+		this.id = id;
+		this.url = url;	
 	}
 	
 	public abstract void tick();
@@ -69,5 +80,26 @@ public abstract class GameObject{
 	}
 	public String getUrl(){
 		return url;
+	}
+	public int getUpImgy(){
+		return upImgy;
+	}
+	public int getDownImgy(){
+		return downImgy;
+	}
+	public int getLeftImgy(){
+		return leftImgy;
+	}
+	public int getRightImgy(){
+		return rightImgy;
+	}
+	public int getAnim1(){
+		return anim1;
+	}
+	public int getAnim2(){
+		return anim2;
+	}
+	public int getAnim3(){
+		return anim3;
 	}
 }
