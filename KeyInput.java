@@ -3,9 +3,9 @@ import java.awt.event.KeyEvent;
 
 
 public class KeyInput extends KeyAdapter{
-	private int imgx = 0;
-	private int delay = 0;
 	private Handler handler;
+	private int delay = 0;
+	private int changeRate = 5;
 
 	public KeyInput(Handler handler){
 		this.handler = handler;
@@ -13,37 +13,41 @@ public class KeyInput extends KeyAdapter{
 
 	public void keyPressed(KeyEvent e){
 		int key = e.getKeyCode();
+
 		for(int i = 0; i < handler.object.size(); i++){
 
 			GameObject tempObject = handler.object.get(i);
 
 			//Animacion del jugador
+			int imgx = tempObject.getImgx();
+
 
 			if(tempObject.getID() == ID.Player){
 				delay ++;
-				if(delay > 5){
+				if (delay == changeRate){
+					tempObject.setImgx(tempObject.getAnim1());
+				}
+				if (delay == (2 * changeRate)){
+					tempObject.setImgx(tempObject.getAnim2());
+				}
+				if (delay == (3 * changeRate)){
+					tempObject.setImgx(tempObject.getAnim3());
 					delay = 0;
 				}
-				if (delay == 5){
-					imgx += 48;
-					if(imgx > 96){
-						imgx = 0;
-					}
-				tempObject.setImgx(imgx);
-				}
+
 				if(key == KeyEvent.VK_W){
-					tempObject.setImgy(144);
+					tempObject.setImgy(tempObject.getUpImgy());
 				}
 				if(key == KeyEvent.VK_S){
-					tempObject.setImgy(0);
+					tempObject.setImgy(tempObject.getDownImgy());
 				}
 				if(key == KeyEvent.VK_D){
 					
-					tempObject.setImgy(96);
+					tempObject.setImgy(tempObject.getRightImgy());
 					
 				}
 				if(key == KeyEvent.VK_A){
-					tempObject.setImgy(48);
+					tempObject.setImgy(tempObject.getLeftImgy());
 				}
 			}
 
@@ -78,20 +82,20 @@ public class KeyInput extends KeyAdapter{
 
 			if(tempObject.getID() == ID.Player){
 				if(key == KeyEvent.VK_W){
-					tempObject.setImgx(48);
-					tempObject.setImgy(0);
+					tempObject.setImgx(tempObject.getAnim2());
+					tempObject.setImgy(tempObject.getUpImgy());
 				}
 				if(key == KeyEvent.VK_S){
-					tempObject.setImgx(48);
-					tempObject.setImgy(0);
+					tempObject.setImgx(tempObject.getAnim2());
+					tempObject.setImgy(tempObject.getDownImgy());
 				}
 				if(key == KeyEvent.VK_D){
-					tempObject.setImgx(48);
-					tempObject.setImgy(0);
+					tempObject.setImgx(tempObject.getAnim2());
+					tempObject.setImgy(tempObject.getRightImgy());
 				}
 				if(key == KeyEvent.VK_A){
-					tempObject.setImgx(48);
-					tempObject.setImgy(0);
+					tempObject.setImgx(tempObject.getAnim2());
+					tempObject.setImgy(tempObject.getLeftImgy());
 				}
 			}
 
