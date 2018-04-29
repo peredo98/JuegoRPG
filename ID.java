@@ -1,5 +1,6 @@
 public enum ID{
 	Player(),
 	Enemy(),
-	Map();
+	Map(),
+	Door();
 }

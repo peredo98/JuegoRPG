@@ -8,7 +8,7 @@ public class Main extends Canvas implements Runnable{
 	private Thread thread;
 	private boolean running = false;
 
-	private Handler handler;
+	public Handler handler;
 
 	public Main(){
 		handler = new Handler();
@@ -17,7 +17,7 @@ public class Main extends Canvas implements Runnable{
 
 		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
 
-		handler.addObject(new Town(-260, -160, "MapImages/Map001.png"));
+		handler.addObjectFirst(new Town(-260, -160, handler));
 		handler.addObject(new Character(width/2-48, height/2-48, 192, 192, ID.Player, "Sprites/Actor1.png"));
 		
 	}

@@ -60,7 +60,6 @@ public class KeyInput extends KeyAdapter{
 					tempObject.setVely(-3);
 				}
 				if(key == KeyEvent.VK_D){
-					
 					tempObject.setVelx(-3);
 					
 				}
@@ -69,7 +68,13 @@ public class KeyInput extends KeyAdapter{
 				}
 			}
 
-			
+			if(tempObject.getID() == ID.Door){
+				if(key == KeyEvent.VK_W && tempObject.isUp()){
+					handler.removeObjectFirst();
+					handler.removeDoors();
+					handler.addObjectFirst(tempObject.getMap());
+				}
+			}
 		}
 	}
 

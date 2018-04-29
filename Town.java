@@ -5,10 +5,19 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class Town extends Map{
+	private BufferedImage img = null;
+	private Handler handler;
+	private Door toHouse1 = new Door(x + 384, y + 320, new House(153, -81, handler));
+	private Door toHouse2 = new Door(x + 704, y + 320, new House(153, -81, handler));
 
-	public Town(int x, int y, String url){
-		super(x, y, url);
+	public Town(int x, int y, Handler handler){
+		super(x, y);
+		this.handler = handler;
 		setID(ID.Map);
+		setUrl("MapImages/Map001.png");
+		handler.addObject(toHouse2);
+		handler.addObject(toHouse1);
+	
 	}
 
 
@@ -20,5 +29,20 @@ public class Town extends Map{
 			return false;
 		}
 	}
+
+	public void render(Graphics g){
+		
+		try {
+  			  img = ImageIO.read(new File(url));
+		} 
+		catch (IOException e) {
+		}
+		g.drawImage(img, x, y, 1280, 960, null);
+		toHouse1.setX(x + 384);
+		toHouse1.setY(y + 320);
+		toHouse2.setX(x + 704);
+		toHouse2.setY(y + 320);
+	}
+	
 
 }

@@ -23,7 +23,24 @@ public class Handler{
 		this.object.add(object);
 	}
 
+	public void addObjectFirst(GameObject object){
+		this.object.addFirst(object);
+	}
+
 	public void removeObject(GameObject object){
 		this.object.remove(object);
+	}
+
+	public void removeObjectFirst(){
+		this.object.removeFirst();
+	}
+
+	public void removeDoors(){
+		for(int i = 0; i < object.size(); i++){
+			GameObject tempObject = object.get(i);
+			if (tempObject.getID() == ID.Door){
+				removeObject(tempObject);
+			}
+		}
 	}
 }
