@@ -4,6 +4,7 @@ public abstract class GameObject{
 	protected ID id;
 	protected String url;
 	protected int upImgy, downImgy, leftImgy, rightImgy, anim1, anim2, anim3;
+	protected Map map;
 	
 	public GameObject(int x, int y, int imgx, int imgy, ID id, String url){
 		this.x = x;
@@ -24,9 +25,20 @@ public abstract class GameObject{
 	public GameObject(int x, int y, String url){
 		this.x = x;
 		this.y = y;
-		this.id = id;
 		this.url = url;	
 	}
+	public GameObject(int x, int y){
+		this.x = x;
+		this.y = y;
+
+	}
+
+	public GameObject(int x, int y, Map map){
+		this.x = x;
+		this.y = y;
+		this.map = map;
+	}
+
 	
 	public abstract void tick();
 	public abstract void render(Graphics g);
@@ -101,5 +113,20 @@ public abstract class GameObject{
 	}
 	public int getAnim3(){
 		return anim3;
+	}
+	public void setMap(Map map){
+		this.map = map;
+	}
+	public Map getMap(){
+		return map;
+	}
+
+	public boolean isUp(){
+		if(x >= 325 && x <= 358 && y == 229){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 }
