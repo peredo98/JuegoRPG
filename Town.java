@@ -7,17 +7,17 @@ import java.io.IOException;
 public class Town extends Map{
 	private BufferedImage img = null;
 	private Handler handler;
-	private Door toHouse1 = new Door(x + 384, y + 320, new House(153, -81, handler));
-	private Door toHouse2 = new Door(x + 704, y + 320, new House(153, -81, handler));
+	private House house = new House(153, -81, handler);
+	private Door toHouse1 = new Door(x + 384, y + 320, house);
+	private Door toHouse2 = new Door(x + 704, y + 320, house);
 
 	public Town(int x, int y, Handler handler){
 		super(x, y);
 		this.handler = handler;
 		setID(ID.Map);
 		setUrl("MapImages/Map001.png");
-		handler.addObject(toHouse2);
 		handler.addObject(toHouse1);
-	
+		handler.addObject(toHouse2);
 	}
 
 

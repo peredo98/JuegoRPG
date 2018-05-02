@@ -37,9 +37,9 @@ public class Handler{
 
 	public void removeDoors(){
 		for(int i = 0; i < object.size(); i++){
-			GameObject tempObject = object.get(i);
-			if (tempObject.getID() == ID.Door){
-				removeObject(tempObject);
+			if (object.get(i).getID() == ID.Door){
+				removeObject(object.get(i));
+				i = 0;
 			}
 		}
 	}
