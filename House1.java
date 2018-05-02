@@ -4,12 +4,12 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class House extends Map{
+public class House1 extends Map{
 	private BufferedImage img = null;
 	private Handler handler;
 	private Door toTown;
 
-	public House(int x, int y, Handler handler){
+	public House1(int x, int y, Handler handler){
 		super(x, y);
 		this.handler = handler;
 		setID(ID.Map);
@@ -42,7 +42,6 @@ public class House extends Map{
 		Town town = new Town(-47, -91, handler);
 		toTown = new Door(x + 192, y + 384, town);
 		handler.addObject(toTown);
-
 	}
 
 }

@@ -41,9 +41,10 @@ public class Town extends Map{
 		toHouse2.setY(y + 320);
 	}
 	public void setDoors(){
-		House house = new House(153, -81, handler);
-		toHouse1 = new Door(x + 384, y + 320, house);
-		toHouse2 = new Door(x + 704, y + 320, house);
+		House1 house1 = new House1(153, -81, handler);
+		House2 house2 = new House2(153, -81, handler);
+		toHouse1 = new Door(x + 384, y + 320, house1);
+		toHouse2 = new Door(x + 704, y + 320, house2);
 		handler.addObject(toHouse1);
 		handler.addObject(toHouse2);
 	}
