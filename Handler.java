@@ -40,6 +40,7 @@ public class Handler{
 			GameObject tempObject = object.get(i);
 			if (tempObject.getID() == ID.Door){
 				removeObject(tempObject);
+				i = 0;
 			}
 		}
 	}
