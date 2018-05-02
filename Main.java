@@ -17,7 +17,9 @@ public class Main extends Canvas implements Runnable{
 
 		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
 
-		handler.addObjectFirst(new Town(-260, -160, handler));
+		Town town = new Town(-260, -160, handler);
+		town.setDoors();
+		handler.addObjectFirst(town);
 		handler.addObject(new Character(width/2-48, height/2-48, 192, 192, ID.Player, "Sprites/Actor1.png"));
 		
 	}

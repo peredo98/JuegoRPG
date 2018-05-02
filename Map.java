@@ -24,12 +24,14 @@ public abstract class Map extends GameObject{
 		x -= velx;
 		y -= vely;
 		}
-		System.out.println(x+ " " +y);
+		//System.out.println(x+ " " +y);
 		
 	}
 
 	public abstract void render(Graphics g);
 
 	public abstract boolean limitMap();
+
+	public abstract void setDoors();
 
 }

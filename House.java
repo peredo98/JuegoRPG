@@ -7,6 +7,7 @@ import java.io.IOException;
 public class House extends Map{
 	private BufferedImage img = null;
 	private Handler handler;
+	private Door toTown;
 
 	public House(int x, int y, Handler handler){
 		super(x, y);
@@ -33,7 +34,15 @@ public class House extends Map{
 		catch (IOException e) {
 		}
 		g.drawImage(img, x, y, 384, 384, null);
+		toTown.setX(x + 192);
+		toTown.setY(y + 384);
 	}
 	
+	public void setDoors(){
+		Town town = new Town(-47, -91, handler);
+		toTown = new Door(x + 192, y + 384, town);
+		handler.addObject(toTown);
+
+	}
 
 }

@@ -129,4 +129,13 @@ public abstract class GameObject{
 			return false;
 		}
 	}
+
+	public boolean isDown(){
+		if(x >= 325 && x <= 358 && y == 303){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }
