@@ -138,4 +138,12 @@ public abstract class GameObject{
 			return false;
 		}
 	}
+	public boolean isRight(){
+		if(x >= 390 && x <= 399 && y <= 303 && y >= 229){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }

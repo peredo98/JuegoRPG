@@ -17,7 +17,6 @@ public class Door extends GameObject{
 	public void render(Graphics g){
 		g.setColor(Color.white);
 		g.drawRect(x, y, 64, 64);
-		//System.out.println(x+ " " + " " +y);
 	}
 
 

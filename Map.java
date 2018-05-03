@@ -12,9 +12,7 @@ public abstract class Map extends GameObject{
 	}
 
 	public void tick(){
-	
 
-		
 		x += velx;
 		y += vely;
 
