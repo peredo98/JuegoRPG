@@ -35,12 +35,12 @@ public class Woods extends Map{
 		}
 		g.drawImage(img, x, y, 3200, 3200, null);
 		toTown.setX(x + 640);
-		toTown.setY(y + 2685);
+		toTown.setY(y + 2688);
 	}
 	
 	public void setDoorsAndNpc(){
-		Town town = new Town(-680, -91, handler);
-		toTown = new Door(x + 640, y + 2685 , town);
+		Town town = new Town(-881, -190, handler);
+		toTown = new Door(x + 640, y + 2688 , town);
 		handler.addObject(toTown);
 	}
 

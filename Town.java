@@ -11,6 +11,8 @@ public class Town extends Map{
 	private Door toHouse2;
 	private Door toTaqueria;
 	private Door toWoods;
+	private Door toWoods2;
+	private Door toWoods3;
 
 	public Town(int x, int y, Handler handler){
 		super(x, y);
@@ -45,6 +47,10 @@ public class Town extends Map{
 		toTaqueria.setY(y + 320);
 		toWoods.setX(x + 1280);
 		toWoods.setY(y + 387);
+		toWoods2.setX(x + 1280);
+		toWoods2.setY(y + 451);
+		toWoods3.setX(x + 1280);
+		toWoods3.setY(y + 515);
 	}
 	public void setDoorsAndNpc(){
 		House1 house1 = new House1(153, -81, handler);
@@ -54,11 +60,15 @@ public class Town extends Map{
 		toHouse1 = new Door(x + 384, y + 320, house1);
 		toHouse2 = new Door(x + 704, y + 320, house2);
 		toTaqueria = new Door(x + 1024, y + 320, taqueria);
-		toWoods = new Door(x + 400, y + 400, woods);
+		toWoods = new Door(x + 1280, y + 387, woods);
+		toWoods2 = new Door(x + 1280, y + 451, woods);
+		toWoods3 = new Door(x + 1280, y + 515, woods);
 		handler.addObject(toHouse1);
 		handler.addObject(toHouse2);
 		handler.addObject(toTaqueria);
 		handler.addObject(toWoods);
+		handler.addObject(toWoods2);
+		handler.addObject(toWoods3);
 	}
 
 }
