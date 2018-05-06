@@ -9,6 +9,7 @@ public class Taqueria extends Map{
 	private Handler handler;
 	private Door toTown;
 	private Npc npc1;
+	private Npc npc2;
 
 	public Taqueria(int x, int y, Handler handler){
 		super(x, y);
@@ -39,14 +40,18 @@ public class Taqueria extends Map{
 		toTown.setY(y + 640);
 		npc1.setX(x + 128);
 		npc1.setY(y + 330);
+		npc2.setX(x + 328);
+		npc2.setY(y + 340);
 	}
 	
 	public void setDoorsAndNpc(){
 		Town town = new Town(-680, -91, handler);
 		toTown = new Door(x + 128, y + 640, town);
 		npc1 = new Npc(x + 128, y + 330, 48, 192, "Sprites/People1.png");
+		npc2 = new Npc(x + 328, y + 340, 336, 192, "Sprites/People1.png");
 		handler.addObject(toTown);
 		handler.addObject(npc1);
+		handler.addObject(npc2);
 
 	}
 
