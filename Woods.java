@@ -34,13 +34,13 @@ public class Woods extends Map{
 		catch (IOException e) {
 		}
 		g.drawImage(img, x, y, 3200, 3200, null);
-		toTown.setX(x + 128);
-		toTown.setY(y + 640);
+		toTown.setX(x + 640);
+		toTown.setY(y + 2685);
 	}
 	
 	public void setDoorsAndNpc(){
 		Town town = new Town(-680, -91, handler);
-		toTown = new Door(x + 128, y + 640, town);
+		toTown = new Door(x + 640, y + 2685 , town);
 		handler.addObject(toTown);
 	}
 

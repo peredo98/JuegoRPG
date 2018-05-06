@@ -162,4 +162,20 @@ public abstract class GameObject{
 			return false;
 		}
 	}
+	public boolean isLeft(){
+		if(x >= 390 && x <= 399 && y <= 303 && y >= 229){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean isNearby(){
+		if(x >= 316 && x <= 385 && y <= 202 && y >= 298){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }
