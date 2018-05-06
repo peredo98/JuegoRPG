@@ -50,7 +50,7 @@ public class Town extends Map{
 		House1 house1 = new House1(153, -81, handler);
 		House2 house2 = new House2(153, -81, handler);
 		Taqueria taqueria = new Taqueria(213, -339, handler);
-		Woods woods = new Woods(100, -1000, handler);
+		Woods woods = new Woods(-358, -2457, handler);
 		toHouse1 = new Door(x + 384, y + 320, house1);
 		toHouse2 = new Door(x + 704, y + 320, house2);
 		toTaqueria = new Door(x + 1024, y + 320, taqueria);
