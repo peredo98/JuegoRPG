@@ -22,7 +22,7 @@ public class KeyInput extends KeyAdapter{
 			int imgx = tempObject.getImgx();
 
 
-			if(tempObject.getID() == ID.Player){
+			if(tempObject.getID() == ID.Player && !handler.isDialogueDisplaying()){
 				delay ++;
 				if (delay == changeRate){
 					tempObject.setImgx(tempObject.getAnim1());
@@ -52,7 +52,7 @@ public class KeyInput extends KeyAdapter{
 			}
 
 			//Movimiento 
-			if(tempObject.getID() == ID.Map){
+			if(tempObject.getID() == ID.Map && !handler.isDialogueDisplaying()){
 				if(key == KeyEvent.VK_W){
 					tempObject.setVely(3);
 				}
@@ -76,6 +76,12 @@ public class KeyInput extends KeyAdapter{
 					tempObject.getMap().setDoors();
 				}
 			}
+
+			if(tempObject.getID() == ID.Dialogue){
+				if(key == KeyEvent.VK_ENTER){
+					handler.removeDialogue();
+				}
+			}
 		}
 	}
 
@@ -86,7 +92,7 @@ public class KeyInput extends KeyAdapter{
 
 			//animación jugador
 
-			if(tempObject.getID() == ID.Player){
+			if(tempObject.getID() == ID.Player && !handler.isDialogueDisplaying()){
 				if(key == KeyEvent.VK_W){
 					tempObject.setImgx(tempObject.getAnim2());
 					tempObject.setImgy(tempObject.getUpImgy());
@@ -107,7 +113,7 @@ public class KeyInput extends KeyAdapter{
 
 
 			//Movimiento 
-			if(tempObject.getID() == ID.Map){
+			if(tempObject.getID() == ID.Map && !handler.isDialogueDisplaying()){
 				if(key == KeyEvent.VK_W){
 					tempObject.setVely(0);
 				}

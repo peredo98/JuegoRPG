@@ -44,4 +44,22 @@ public class Handler{
 			}
 		}
 	}
+	public void removeDialogue(){
+		for(int i = 0; i < object.size(); i++){
+			GameObject tempObject = object.get(i);
+			if (tempObject.getID() == ID.Dialogue){
+				removeObject(tempObject);
+			}
+		}
+	}
+	public boolean isDialogueDisplaying(){
+		boolean isDislpaying = false;
+		for(int i = 0; i < object.size(); i++){
+			GameObject tempObject = object.get(i);
+			if (tempObject.getID() == ID.Dialogue){
+				isDislpaying =  true;
+			}
+		}
+		return isDislpaying;
+	}
 }

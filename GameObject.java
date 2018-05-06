@@ -32,6 +32,9 @@ public abstract class GameObject{
 		this.y = y;
 
 	}
+	public GameObject(){
+
+	}
 
 	public GameObject(int x, int y, Map map){
 		this.x = x;

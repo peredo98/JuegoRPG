@@ -21,6 +21,7 @@ public class Main extends Canvas implements Runnable{
 		town.setDoors();
 		handler.addObjectFirst(town);
 		handler.addObject(new Character(width/2-48, height/2-48, 192, 192, ID.Player, "Sprites/Actor1.png"));
+		handler.addObject(new Dialogue("Press enter to remove this Dialogue"));
 		
 	}
 	public synchronized void start(){
@@ -69,7 +70,7 @@ public class Main extends Canvas implements Runnable{
 	private void render(){
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null){
-			this.createBufferStrategy(3);
+			this.createBufferStrategy(2);
 			return;
 		}
 		

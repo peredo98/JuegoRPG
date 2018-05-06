@@ -54,7 +54,7 @@ public class Town extends Map{
 		toHouse1 = new Door(x + 384, y + 320, house1);
 		toHouse2 = new Door(x + 704, y + 320, house2);
 		toTaqueria = new Door(x + 1024, y + 320, taqueria);
-		toWoods = new Door(x + 1280, y + 387, woods);
+		toWoods = new Door(x + 400, y + 400, woods);
 		handler.addObject(toHouse1);
 		handler.addObject(toHouse2);
 		handler.addObject(toTaqueria);
