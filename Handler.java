@@ -5,6 +5,8 @@ public class Handler{
 	
 	LinkedList<GameObject> object = new LinkedList<GameObject>();
 
+	private int counter = 0;
+
 	public void tick(){
 		for(int i = 0; i < object.size(); i++){
 			GameObject tempObject = object.get(i);
@@ -35,10 +37,10 @@ public class Handler{
 		this.object.removeFirst();
 	}
 
-	public void removeDoors(){
+	public void removeDoorsAndNpc(){
 		for(int i = 0; i < object.size(); i++){
 			GameObject tempObject = object.get(i);
-			if (tempObject.getID() == ID.Door){
+			if (tempObject.getID() == ID.Door || tempObject.getID() == ID.Npc){
 				removeObject(tempObject);
 				i = 0;
 			}
@@ -49,6 +51,8 @@ public class Handler{
 			GameObject tempObject = object.get(i);
 			if (tempObject.getID() == ID.Dialogue){
 				removeObject(tempObject);
+				counter++;
+				events();
 			}
 		}
 	}
@@ -61,5 +65,11 @@ public class Handler{
 			}
 		}
 		return isDislpaying;
+	}
+
+	public void events(){
+		if(counter == 1){
+			addObject(new Dialogue("Use W,A,S,D to move (You can't move if there is a Dialogue)"));
+		}
 	}
 }

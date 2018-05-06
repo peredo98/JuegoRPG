@@ -18,10 +18,10 @@ public class Main extends Canvas implements Runnable{
 		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
 
 		Town town = new Town(-260, -160, handler);
-		town.setDoors();
+		town.setDoorsAndNpc();
 		handler.addObjectFirst(town);
-		handler.addObject(new Character(width/2-48, height/2-48, 192, 192, ID.Player, "Sprites/Actor1.png"));
-		handler.addObject(new Dialogue("Press enter to remove this Dialogue"));
+		handler.addObject(new Player(width/2-48, height/2-48, 192, 192));
+		handler.addObject(new Dialogue("Press enter to skip this Dialogue"));
 		
 	}
 	public synchronized void start(){

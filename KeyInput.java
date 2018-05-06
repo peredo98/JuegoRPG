@@ -70,10 +70,10 @@ public class KeyInput extends KeyAdapter{
 
 			if(tempObject.getID() == ID.Door){
 				if( (key == KeyEvent.VK_W && tempObject.isUp()) ||  (key == KeyEvent.VK_S && tempObject.isDown()) ||  (key == KeyEvent.VK_D && tempObject.isRight())){
-					handler.removeDoors();
+					handler.removeDoorsAndNpc();
 					handler.removeObjectFirst();
 					handler.addObjectFirst(tempObject.getMap());	
-					tempObject.getMap().setDoors();
+					tempObject.getMap().setDoorsAndNpc();
 				}
 			}
 

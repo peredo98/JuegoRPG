@@ -46,7 +46,7 @@ public class Town extends Map{
 		toWoods.setX(x + 1280);
 		toWoods.setY(y + 387);
 	}
-	public void setDoors(){
+	public void setDoorsAndNpc(){
 		House1 house1 = new House1(153, -81, handler);
 		House2 house2 = new House2(153, -81, handler);
 		Taqueria taqueria = new Taqueria(213, -339, handler);

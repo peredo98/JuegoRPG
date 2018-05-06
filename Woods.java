@@ -38,7 +38,7 @@ public class Woods extends Map{
 		toTown.setY(y + 640);
 	}
 	
-	public void setDoors(){
+	public void setDoorsAndNpc(){
 		Town town = new Town(-680, -91, handler);
 		toTown = new Door(x + 128, y + 640, town);
 		handler.addObject(toTown);

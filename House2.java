@@ -38,7 +38,7 @@ public class House2 extends Map{
 		toTown.setY(y + 384);
 	}
 	
-	public void setDoors(){
+	public void setDoorsAndNpc(){
 		Town town = new Town(-362, -91, handler);
 		toTown = new Door(x + 192, y + 384, town);
 		handler.addObject(toTown);

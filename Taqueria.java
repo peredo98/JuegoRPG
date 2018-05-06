@@ -8,6 +8,7 @@ public class Taqueria extends Map{
 	private BufferedImage img = null;
 	private Handler handler;
 	private Door toTown;
+	private Npc npc1;
 
 	public Taqueria(int x, int y, Handler handler){
 		super(x, y);
@@ -36,12 +37,17 @@ public class Taqueria extends Map{
 		g.drawImage(img, x, y, 960, 640, null);
 		toTown.setX(x + 128);
 		toTown.setY(y + 640);
+		npc1.setX(x + 128);
+		npc1.setY(y + 330);
 	}
 	
-	public void setDoors(){
+	public void setDoorsAndNpc(){
 		Town town = new Town(-680, -91, handler);
 		toTown = new Door(x + 128, y + 640, town);
+		npc1 = new Npc(x + 128, y + 330, 48, 192, "Sprites/People1.png");
 		handler.addObject(toTown);
+		handler.addObject(npc1);
+
 	}
 
 }

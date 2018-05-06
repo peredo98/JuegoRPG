@@ -6,13 +6,26 @@ public abstract class GameObject{
 	protected int upImgy, downImgy, leftImgy, rightImgy, anim1, anim2, anim3;
 	protected Map map;
 	
-	public GameObject(int x, int y, int imgx, int imgy, ID id, String url){
+	public GameObject(int x, int y, int imgx, int imgy, String url){
 		this.x = x;
 		this.y = y;
 		this.imgx = imgx;
 		this.imgy = imgy;
-		this.id = id;
 		this.url = url;
+		this.downImgy = imgy;
+		this.leftImgy = imgy + 48;
+		this.rightImgy = imgy +96;
+		this.upImgy = imgy + 144;
+		this.anim1 = imgx - 48;
+		this.anim2 = imgx;
+		this.anim3 = imgx + 48;
+	}
+
+	public GameObject(int x, int y, int imgx, int imgy){
+		this.x = x;
+		this.y = y;
+		this.imgx = imgx;
+		this.imgy = imgy;
 		this.downImgy = imgy;
 		this.leftImgy = imgy + 48;
 		this.rightImgy = imgy +96;

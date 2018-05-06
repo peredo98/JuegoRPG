@@ -30,6 +30,6 @@ public abstract class Map extends GameObject{
 
 	public abstract boolean limitMap();
 
-	public abstract void setDoors();
+	public abstract void setDoorsAndNpc();
 
 }
