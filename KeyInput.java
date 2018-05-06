@@ -6,6 +6,7 @@ public class KeyInput extends KeyAdapter{
 	private Handler handler;
 	private int delay = 0;
 	private int changeRate = 5;
+	private int vel = 3;
 
 	public KeyInput(Handler handler){
 		this.handler = handler;
@@ -54,17 +55,20 @@ public class KeyInput extends KeyAdapter{
 			//Movimiento 
 			if(tempObject.getID() == ID.Map && !handler.isDialogueDisplaying()){
 				if(key == KeyEvent.VK_W){
-					tempObject.setVely(3);
+					tempObject.setVely(vel);
 				}
 				if(key == KeyEvent.VK_S){
-					tempObject.setVely(-3);
+					tempObject.setVely(-vel);
 				}
 				if(key == KeyEvent.VK_D){
-					tempObject.setVelx(-3);
+					tempObject.setVelx(-vel);
 					
 				}
 				if(key == KeyEvent.VK_A){
-					tempObject.setVelx(3);
+					tempObject.setVelx(vel);
+				}
+				if(key == KeyEvent.VK_SHIFT){
+					vel = 6;
 				}
 			}
 
@@ -127,6 +131,9 @@ public class KeyInput extends KeyAdapter{
 				}
 				if(key == KeyEvent.VK_A){
 					tempObject.setVelx(0);
+				}
+				if(key == KeyEvent.VK_SHIFT){
+					vel = 3;
 				}
 			}
 			
