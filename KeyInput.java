@@ -81,11 +81,12 @@ public class KeyInput extends KeyAdapter{
 				}
 			}
 
-			if(tempObject.getID() == ID.Dialogue){
+			if(tempObject.getID() == ID.Dialogue && handler.isDialogueDisplaying()){
 				if(key == KeyEvent.VK_ENTER){
 					handler.removeDialogue();
 				}
 			}
+			
 		}
 	}
 
@@ -134,6 +135,13 @@ public class KeyInput extends KeyAdapter{
 				}
 				if(key == KeyEvent.VK_SHIFT){
 					vel = 3;
+				}
+			}
+
+			if(tempObject.getID() == ID.Npc){
+				Npc tempNpc = (Npc) tempObject;
+				if(key == KeyEvent.VK_ENTER && tempNpc.isNearby() && !handler.isDialogueDisplaying() && !tempNpc.getIsDisplayed()){
+					handler.addObject(tempNpc.getDialogue());
 				}
 			}
 			

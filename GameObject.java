@@ -171,7 +171,7 @@ public abstract class GameObject{
 		}
 	}
 	public boolean isNearby(){
-		if(x >= 316 && x <= 385 && y <= 202 && y >= 298){
+		if(x >= 316 && x <= 385 && y <= 298 && y >= 202){
 			return true;
 		}
 		else{
