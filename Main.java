@@ -17,10 +17,11 @@ public class Main extends Canvas implements Runnable{
 
 		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
 
-		Town town = new Town(-260, -160, handler);
-		town.setDoors();
-		handler.addObjectFirst(town);
+		House1 house1 = new House1(153, 57, handler);
+		house1.setDoors();
+		handler.addObjectFirst(house1);
 		handler.addObject(new Character(width/2-48, height/2-48, 192, 192, ID.Player, "Sprites/Actor1.png"));
+
 		
 	}
 	public synchronized void start(){
