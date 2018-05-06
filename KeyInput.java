@@ -86,6 +86,16 @@ public class KeyInput extends KeyAdapter{
 					handler.removeDialogue();
 				}
 			}
+
+			if(tempObject.getID() == ID.Inventory){
+				Inventory inventory = (Inventory) tempObject;
+				if(key == KeyEvent.VK_I && !inventory.getIsDisplaying() && !handler.isDialogueDisplaying()){
+					inventory.setIsDisplaying(true);
+				}
+				else if(key == KeyEvent.VK_I && inventory.getIsDisplaying()&& !handler.isDialogueDisplaying()){
+					inventory.setIsDisplaying(false);
+				}
+			}
 			
 		}
 	}

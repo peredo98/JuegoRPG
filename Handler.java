@@ -24,6 +24,9 @@ public class Handler{
 	public void addObject(GameObject object){
 		this.object.add(object);
 	}
+	public void addObject(int index, GameObject object){
+		this.object.add(index, object);
+	}
 
 	public void addObjectFirst(GameObject object){
 		this.object.addFirst(object);

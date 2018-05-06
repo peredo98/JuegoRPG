@@ -22,7 +22,7 @@ public class Main extends Canvas implements Runnable{
 		handler.addObjectFirst(town);
 		handler.addObject(new Player(width/2-48, height/2-48, 192, 192));
 		handler.addObject(new Dialogue("Press enter to skip this Dialogue"));
-		
+		handler.addObject(new Inventory());
 	}
 	public synchronized void start(){
 		thread = new Thread(this);

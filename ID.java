@@ -3,6 +3,7 @@ public enum ID{
 	Enemy(),
 	Npc(),
 	Dialogue(),
+	Inventory(),
 	Map(),
 	Door();
 }
