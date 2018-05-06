@@ -49,6 +49,7 @@ public class Taqueria extends Map{
 		toTown = new Door(x + 128, y + 640, town);
 		npc1 = new Npc(x + 128, y + 330, 48, 192, "Sprites/People1.png");
 		npc2 = new Npc(x + 328, y + 340, 336, 192, "Sprites/People1.png");
+		npc2.setText("Puto el que lo lea");
 		handler.addObject(toTown);
 		handler.addObject(npc1);
 		handler.addObject(npc2);
