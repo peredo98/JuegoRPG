@@ -96,6 +96,7 @@ public class KeyInput extends KeyAdapter{
 					inventory.setIsDisplaying(false);
 				}
 			}
+
 			
 		}
 	}
@@ -152,6 +153,16 @@ public class KeyInput extends KeyAdapter{
 				Npc tempNpc = (Npc) tempObject;
 				if(key == KeyEvent.VK_ENTER && tempNpc.isNearby() && !handler.isDialogueDisplaying() && !tempNpc.getIsDisplayed()){
 					handler.addObject(tempNpc.getDialogue());
+				}
+			}
+
+			if(tempObject.getID() == ID.Player && !handler.isDialogueDisplaying()){
+				Player player = (Player) tempObject;
+				if(key == KeyEvent.VK_Q){
+
+				}
+				if(key == KeyEvent.VK_E){
+
 				}
 			}
 			
