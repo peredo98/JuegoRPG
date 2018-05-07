@@ -4,8 +4,10 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public abstract class Item{
-	private int imgx, imgy, imgw, imgh;
+	private int imgx, imgy, imgw, imgh, cellx, cellx1, celly, celly1;
 	private String url;
+	private Boolean isDragged = false;
+
 	
 	public Item(int imgx, int imgy, int imgw, int imgh, String url){
 		this.imgx = imgx;
@@ -13,6 +15,41 @@ public abstract class Item{
 		this.imgw = imgw;
 		this.imgh = imgh;
 		this.url = url;
+	}
+
+	public void setBounds(int cellx, int cellx1, int celly, int celly1){
+		this.cellx = cellx;
+		this.cellx1 = cellx1;
+		this.celly = celly;
+		this.celly1 = celly1;
+	}
+
+	public void setCellx(int cellx){
+		this.cellx = cellx;
+	}
+
+	public void setCelly(int celly){
+		this.celly = celly;
+	}
+
+	public int getCellx(){
+		return cellx;
+	}
+	public int getCellx1(){
+		return cellx1;
+	}
+	public int getCelly(){
+		return celly;
+	}
+	public int getCelly1(){
+		return celly1;
+	}
+
+	public void setIsDragged(boolean isDragged){
+		this.isDragged = isDragged;
+	}
+	public boolean getIsDragged(){
+		return isDragged;
 	}
 
 	public void setImgx(int imgx){

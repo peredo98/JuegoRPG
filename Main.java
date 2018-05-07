@@ -14,8 +14,9 @@ public class Main extends Canvas implements Runnable{
 		handler = new Handler();
 
 		this.addKeyListener(new KeyInput(handler));
+		this.addMouseMotionListener(new MouseInput(handler));
 
-		new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
+	 	new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
 
 		Town town = new Town(-260, -160, handler);
 		town.setDoorsAndNpc();

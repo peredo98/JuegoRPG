@@ -7,10 +7,12 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.LinkedList;
 
+
 public class Inventory extends GameObject{
 	private boolean isDisplaying = false;
 	private BufferedImage img = null;
-	private Item [][] bag = new Item [5][6];
+	private Item [][] bag = new Item [5][6]; 
+	                                                                                                        
 
 	LinkedList<Item> items = new LinkedList<Item>();
 
@@ -26,6 +28,7 @@ public class Inventory extends GameObject{
 	public boolean getIsDisplaying(){
 		return isDisplaying;
 	}
+
 
 	public void render(Graphics g){
 		if(isDisplaying){
@@ -44,20 +47,25 @@ public class Inventory extends GameObject{
 			g.drawString("Skill:", 110, 250);
 			g.fillRect(110, 260, 50, 50);
 
-
+			for(int i = 0; i<bag.length; i++){
+				for(int j = 0; j<bag[i].length; j++){
+					int cellx = 435+(i*54);
+					int celly = 160+(j*54);
+					g.fillRect(cellx, celly, 50 , 50);
+				}
+			}
 
 			for(int i = 0; i<bag.length; i++){
 				for(int j = 0; j<bag[i].length; j++){
-					g.fillRect(435+(i*54), 160+(j*54), 50 , 50);
 					try{
-					g.drawImage(bag[i][j].getImage(), 435+(i*54), 160+(j*54), 50 , 50, null);
+					g.drawImage(bag[i][j].getImage(), bag[i][j].getCellx(), bag[i][j].getCelly(), 50 , 50, null);
 					}
 					catch(NullPointerException e){}
 				}
 			}	
-			//g.drawImage(bag[0][0].getImage(), 435+(0*54), 160+(0*54), 50 , 50, null);	
 		}
 	}
+
 	public void tick(){
 
 	}
@@ -66,6 +74,7 @@ public class Inventory extends GameObject{
 		items.add(item);
 		int i = (items.indexOf(item))%5;
    		int j = (items.indexOf(item))/5;
+   		item.setBounds(435+(i*54), 435+(i*54)+50, 160+(j*54), 160+(j*54)+50);
    		bag[i][j] = item;
 	}
 
@@ -75,5 +84,7 @@ public class Inventory extends GameObject{
    		bag[i][j] = null;
    		items.remove(item);
 	}
+
+	
 
 }

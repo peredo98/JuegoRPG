@@ -75,4 +75,15 @@ public class Handler{
 			addObject(new Dialogue("Use W,A,S,D to move (You can't move if there is a Dialogue)"));
 		}
 	}
+
+	public Inventory getInventory(){
+		Inventory inv = null;
+		for(int i = 0; i < object.size(); i++){
+			GameObject tempObject = object.get(i);
+			if (tempObject.getID() == ID.Inventory){
+				inv = (Inventory) tempObject;
+			}
+		}
+		return inv;
+	}
 }
