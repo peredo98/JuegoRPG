@@ -9,6 +9,7 @@ public class Woods extends Map{
 	private Handler handler;
 	private Door toTown;
 	private Door toCave;
+	private Enemy en1;
 
 	public Woods(int x, int y, Handler handler){
 		super(x, y);
@@ -39,6 +40,8 @@ public class Woods extends Map{
 		toTown.setY(y + 2688);
 		toCave.setX(x + 3005);
 		toCave.setY(y + 1785);
+		en1.setX(x + 800);
+		en1.setY(y + 2688);
 	}
 	
 	public void setDoorsAndNpc(){
@@ -48,6 +51,8 @@ public class Woods extends Map{
 		Cave cave = new Cave(-614, -1541, handler);
 		toCave = new Door(x +3005, y +1785, cave);
 		handler.addObject(toCave);
+		en1 = new Enemy(x + 800, y + 2688, 288, 0, "Sprites/Monster.png");
+		handler.addObject(1, en1);
 	}
 
 }
