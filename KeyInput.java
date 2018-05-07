@@ -50,6 +50,14 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_A){
 					tempObject.setImgy(tempObject.getLeftImgy());
 				}
+				if(key == KeyEvent.VK_Q){
+					Player player = (Player)tempObject;
+					player.setUseWeapon(true);
+				}
+				if(key == KeyEvent.VK_E){
+					Player player = (Player)tempObject;
+					player.setUseSkill(true);
+				}
 			}
 
 			//Movimiento 
@@ -129,6 +137,14 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_A){
 					tempObject.setImgx(tempObject.getAnim2());
 					tempObject.setImgy(tempObject.getLeftImgy());
+				}
+				if(key == KeyEvent.VK_Q){
+					Player player = (Player)tempObject;
+					player.setUseWeapon(false);
+				}
+				if(key == KeyEvent.VK_E){
+					Player player = (Player)tempObject;
+					player.setUseSkill(false);
 				}
 			}
 
