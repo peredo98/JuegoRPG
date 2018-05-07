@@ -35,6 +35,12 @@ public class Player extends Character{
 		this.skill= handler.getInventory().getSkill() ; 
 	}
 
+	public Item getWeapon(){
+		return weapon;
+	}
+	public Item getSkill(){
+		return skill;
+	}
 	public void setHp(int hp){
 		this.hp = hp;
 	}

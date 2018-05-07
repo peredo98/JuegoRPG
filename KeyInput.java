@@ -96,6 +96,12 @@ public class KeyInput extends KeyAdapter{
 					inventory.setIsDisplaying(false);
 				}
 			}
+
+			//Cambios Rafa
+
+			
+
+			//Termina Cambios Rafa
 			
 		}
 	}
