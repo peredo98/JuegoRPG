@@ -61,7 +61,7 @@ public class Player extends Character{
 		return mana;
 	}
 
-<<<<<<< HEAD
+
 	public void setHpTimer(int hpTimer){
 		this.hpTimer = hpTimer;
 	}
@@ -78,8 +78,7 @@ public class Player extends Character{
 		return manaTimer;
 	}
 
-	public void useWeapon(){
-=======
+
 	public void setUseWeapon(boolean useWeapon){
 		this.useWeapon = useWeapon;
 	}
@@ -91,7 +90,6 @@ public class Player extends Character{
 	public boolean getUseWeapon(){
 		return useWeapon;
 	}
->>>>>>> 8c546d32feefd32dc3956f2f223e493882fd1958
 
 	public boolean getUseSkill(){
 		return useSkill;
@@ -130,13 +128,7 @@ public class Player extends Character{
 		try {
   			  img = ImageIO.read(new File(url));
   			  statBar = ImageIO.read(new File("Sprites/StatBar.png"));
-<<<<<<< HEAD
-  			  animSkill = ImageIO.read(new File("Sprites/HitFire.png"));
-  			  animWeapon = ImageIO.read(new File("Sprites/Hit2.png"));
-		} 
-=======
   		}
->>>>>>> 8c546d32feefd32dc3956f2f223e493882fd1958
 		catch (IOException e) {
 		}
 		//Render player
