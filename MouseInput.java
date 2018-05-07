@@ -19,19 +19,19 @@ public class MouseInput extends MouseInputAdapter{
 		//System.out.println(e.getX() + " " + e.getY());
 		Inventory inv = handler.getInventory();
 		if(inv.getIsDisplaying()){
-			for(int i = 0; i < inv.items.size(); i++){
-
-				Item tempItem = inv.items.get(i);
-
-
-				if(selectedItem == null && e.getX() >= tempItem.getCellx() && e.getX() <= tempItem.getCellx1() && e.getY() >= tempItem.getCelly() && e.getY() <= tempItem.getCelly1()){
-					selectedItem = tempItem;			
+			for(int i = 0; i < inv.items.length; i++){
+				try{
+					Item tempItem = inv.items[i];
+					if(selectedItem == null && e.getX() >= tempItem.getCellx() && e.getX() <= tempItem.getCellx1() && e.getY() >= tempItem.getCelly() && e.getY() <= tempItem.getCelly1()){
+						selectedItem = tempItem;			
+					}
 				}
-				if(selectedItem != null && e.getX() >= selectedItem.getCellx() && e.getX() <= selectedItem.getCellx1() && e.getY() >= selectedItem.getCelly() && e.getY() <= selectedItem.getCelly1()){
-					System.out.println(e.getX() + " " + e.getY());
-					selectedItem.setCellx(e.getX()-25);
-					selectedItem.setCelly(e.getY()-25);
+				catch(NullPointerException ex){
 				}
+			}
+			if(selectedItem != null){
+				selectedItem.setCellx(e.getX()-25);
+				selectedItem.setCelly(e.getY()-25);
 			}
 		}
 	}

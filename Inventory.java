@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 
 public class Inventory extends GameObject{
@@ -14,11 +14,15 @@ public class Inventory extends GameObject{
 	private Item [][] bag = new Item [5][6]; 
 	                                                                                                        
 
-	LinkedList<Item> items = new LinkedList<Item>();
+	public Item items [] = new Item [30];
+
+	private Item selectedWeapon;
+	private Item selectedSkill;
 
 	public Inventory(){
 		setID(ID.Inventory);
 		addItem(new Weapon(0, 192, 32, 32, "Sprites/IconSet.png"));
+		addItem(new Weapon(416, 128, 32, 32, "Sprites/IconSet.png"));
 		addItem(new Skill(0, 128, 32, 32, "Sprites/IconSet.png"));
 	}
 
@@ -43,9 +47,15 @@ public class Inventory extends GameObject{
 
 			g.drawString("Weapon:", 110, 170);
 			g.fillRect(110, 180, 50, 50);
+			if(selectedWeapon != null){
+				g.drawImage(selectedWeapon.getImage(), 110, 180, 50, 50, null);
+			}
 
 			g.drawString("Skill:", 110, 250);
 			g.fillRect(110, 260, 50, 50);
+			if(selectedSkill != null){
+				g.drawImage(selectedSkill.getImage(), 110, 260, 50, 50, null);
+			}
 
 			for(int i = 0; i<bag.length; i++){
 				for(int j = 0; j<bag[i].length; j++){
@@ -71,23 +81,80 @@ public class Inventory extends GameObject{
 	}
 
 	public void addItem(Item item){
-		items.add(item);
-		int i = (items.indexOf(item))%5;
-   		int j = (items.indexOf(item))/5;
+		int index = 0;
+		for(int i = 0; i<items.length; i++){
+			if(items[i] == null){
+				items[i] = item;
+				break;
+			}
+		}
+		for(int i = 0; i<items.length; i++){
+			if(items[i] == item){
+				index = i;
+				break;
+			}
+		}
+		int i = index%5;
+   		int j = index/5;
    		item.setBounds(435+(i*54), 435+(i*54)+50, 160+(j*54), 160+(j*54)+50);
    		bag[i][j] = item;
 	}
 
+	public void addItem(int index, Item item){
+		for(int i = 0; i<items.length; i++){
+			if(items[i] == null){
+				items[i] = item;
+				break;
+			}
+		}
+		int i = index%5;
+   		int j = index/5;
+   		item.setBounds(435+(i*54), 435+(i*54)+50, 160+(j*54), 160+(j*54)+50);
+   		bag[i][j] = item;
+	}
+
+	public void setItem(int index, Item item){
+		int oldIndex = 0;
+		for(int i = 0; i<items.length; i++){
+			if(items[i] == item){
+				oldIndex = i;
+				break;
+			}
+		}
+		int i = oldIndex%5;
+   		int j = oldIndex/5;
+		int x = index%5;
+		int y = index/5;
+		items[oldIndex] = null;
+		items[index] = item;
+		bag[i][j] = null;
+		bag[x][y] = item;
+ 	}
+
 	public void removeItem(Item item){
-		int i = (items.indexOf(item))%5;
-   		int j = (items.indexOf(item))/5;
+		int index = 0;
+		for(int i = 0; i<items.length; i++){
+			if(items[i] == item){
+				index = i;
+				break;
+			}
+		}
+		int i = index%5;
+   		int j = index/5;
    		bag[i][j] = null;
-   		items.remove(item);
+   		items[index] = null;
 	}
 
 	public void moveItem(Item item){
+		int index = 0; 
+		int lastIndex = 0;
 		try{
-			int index = items.indexOf(item);
+			for(int i = 0; i<items.length; i++){
+				if(items[i] == item){
+					index = i;
+					break;
+				}
+			}
 			int x = index%5;
 	   		int y = index/5;
 			for(int i = 0; i<bag.length; i++){
@@ -95,16 +162,31 @@ public class Inventory extends GameObject{
 					int cellx = 435+(i*54);
 					int celly = 160+(j*54);
 					if((item.getCellx() + 25 ) >= cellx && (item.getCellx() + 25 ) <= (cellx + 50) && (item.getCelly() + 25 ) >= celly && (item.getCelly() + 25 ) <= (celly + 50) ){
+						lastIndex = (j*5+i);
 						if(bag[i][j] != null){
-							Item lastItem = items.get(j*5+i);
-							items.set(index, lastItem);
+							Item lastItem = items[lastIndex];
+							items[index] = lastItem;
 							lastItem.setBounds(435+(x*54), 435+(x*54)+50, 160+(y*54), 160+(y*54)+50);
 							bag[x][y] = lastItem;
 						}
+						else if (bag[i][j] == null){
+							items[index] = null;
+							bag[x][y] = null;
+						}
 						bag[i][j] = item;
-						items.set((j*5+i), item);
+						items[lastIndex] = item;
 						item.setBounds(435+(i*54), 435+(i*54)+50, 160+(j*54), 160+(j*54)+50);
 						return;
+					}
+					if((item.getCellx() + 25 ) >= 110 && (item.getCellx() + 25 ) <= (110 + 50) && (item.getCelly() + 25 ) >= 180 && (item.getCelly() + 25 ) <= (180 + 50) ){
+						if(item.getID() == ID.Weapon){
+							selectedWeapon = item;
+						}
+					}
+					if((item.getCellx() + 25 ) >= 110 && (item.getCellx() + 25 ) <= (110 + 50) && (item.getCelly() + 25 ) >= 260 && (item.getCelly() + 25 ) <= (260 + 50) ){
+						if(item.getID() == ID.Skill){
+							selectedSkill = item;
+						}
 					}
 				}
 			}

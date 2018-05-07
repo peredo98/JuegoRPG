@@ -5,5 +5,7 @@ public enum ID{
 	Dialogue(),
 	Inventory(),
 	Map(),
+	Weapon(),
+	Skill(),
 	Door();
 }
