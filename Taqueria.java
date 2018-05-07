@@ -65,9 +65,9 @@ public class Taqueria extends Map{
 		npc4 = new Npc(x+ 500, y +300, 240, 192, "Sprites/Actor2.png");
 		npc5 = new Npc(x+ 10, y +110, 192, 96, "Sprites/People1.png");
 		npc6 = new Npc(x+ 135, y +110, 528, 240, "Sprites/People1.png");
-		npc2.setText("Si el taco legendario es lo que quieres dentro del bosque DON CHUY lo tiene");
+		npc2.setText("El taco legendario DON CHUY lo tiene");
 		npc3.setText("DON CHUY es considerado el mejor Taquero del universo?");
-		npc4.setText("..........................................");
+		npc4.setText("Si el taco deseas a la cueva debes ir");
 		npc5.setText("Quiero 5 tacos de bistec");
 		npc6.setText("Yo quiero 20 de chicharon");
 		handler.addObject(toTown);
