@@ -8,6 +8,8 @@ public class Player extends Character{
 
 	private int hp, mana;
 	private Item skill, weapon;
+	private BufferedImage animWeapon;
+	private BufferedImage animSkill;
 
 	public Player(int x, int y, int imgx, int imgy, Handler handler){
 		super(x, y, imgx, imgy, handler);
@@ -53,6 +55,10 @@ public class Player extends Character{
 		return mana;
 	}
 
+	public void useWeapon(){
+
+	}
+
 	public void tick(){
 		setWeapon();
 		setSkill();
@@ -61,6 +67,8 @@ public class Player extends Character{
 	public void render(Graphics g){
 		try {
   			  img = ImageIO.read(new File(url));
+  			  animSkill = ImageIO.read(new File("Sprites/HitFire.png"));
+  			  animWeapon = ImageIO.read(new File("Sprites/Hit2.png"));
 		} 
 		catch (IOException e) {
 		}
