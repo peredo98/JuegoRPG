@@ -13,6 +13,10 @@ public class Town extends Map{
 	private Door toWoods;
 	private Door toWoods2;
 	private Door toWoods3;
+	private Npc npc1;
+	private Npc npc2;
+	private Npc npc3;
+
 
 	public Town(int x, int y, Handler handler){
 		super(x, y);
@@ -51,6 +55,12 @@ public class Town extends Map{
 		toWoods2.setY(y + 451);
 		toWoods3.setX(x + 1280);
 		toWoods3.setY(y + 515);
+		npc1.setX(x + 980);
+		npc1.setY(y + 350);
+		npc2.setX(x + 305);
+		npc2.setY(y + 705);
+		npc3.setX(x + 458);
+		npc3.setY(y + 380);
 	}
 	public void setDoorsAndNpc(){
 		House1 house1 = new House1(153, -81, handler);
@@ -69,6 +79,15 @@ public class Town extends Map{
 		handler.addObject(toWoods);
 		handler.addObject(toWoods2);
 		handler.addObject(toWoods3);
+		npc1 = new Npc(x + 980, y + 350, 48, 0, "Sprites/People1.png");
+		npc2 = new Npc(x + 305, y + 705, 336, 240, "Sprites/People1.png");
+		npc3 = new Npc(x+ 458, y +380, 384, 0, "Sprites/People1.png");
+		handler.addObject(1, npc1);
+		handler.addObject(1, npc2);
+		handler.addObject(1, npc3);
+		npc1.setText(" TACOS TACOS TACOS 2X1 VENGAN POR SUS TACOS !!!");
+		npc2.setText(" Creo que hoy me comere unos taquitos aprovechando el 2x1");
+		npc3.setText(" Buenos dias Juan vas por tacos ?");
 	}
 
 }
