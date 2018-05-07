@@ -32,7 +32,13 @@ public class Inventory extends GameObject{
 	public boolean getIsDisplaying(){
 		return isDisplaying;
 	}
+	private Item getWeapon(){
+		return selectedWeapon;
+	}
 
+	private Item getSkill(){
+		return selectedSkill;
+	}
 
 	public void render(Graphics g){
 		if(isDisplaying){

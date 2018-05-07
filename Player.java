@@ -1,10 +1,16 @@
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+
 public class Player extends Character{
 
-	private int hp;
-	private int mana;
+	private int hp, mana;
+	private Item skill, weapon;
 
-	public Player(int x, int y, int imgx, int imgy){
-		super(x, y, imgx, imgy);
+	public Player(int x, int y, int imgx, int imgy, Handler handler){
+		super(x, y, imgx, imgy, handler);
 		this.downImgy = imgy;
 		this.leftImgy = imgy + 48;
 		this.rightImgy = imgy +96;
@@ -14,8 +20,11 @@ public class Player extends Character{
 		this.anim3 = imgx + 48;
 		setID(ID.Player);
 		setUrl("Sprites/Actor1.png");
-		hp = 100;
-		mana = 100;
+		setHp(100);
+		setMana(100);
+	}
+	public void setWeapon(){
+		//this.weapon = handler.getInventory().getWeapon() ; 
 	}
 
 	public void setHp(int hp){
@@ -32,6 +41,21 @@ public class Player extends Character{
 
 	public int getMana(){
 		return mana;
+	}
+
+	public void tick(){
+
+	}
+
+	public void render(Graphics g){
+		try {
+  			  img = ImageIO.read(new File(url));
+		} 
+		catch (IOException e) {
+		}
+		img = img.getSubimage(imgx, imgy, 48, 48);
+		g.drawImage(img, x, y, 48, 48, null);
+		g.drawString("HP: " + getHp(), 100, 500);
 	}
 
 }
