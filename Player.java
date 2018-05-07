@@ -153,7 +153,11 @@ public class Player extends Character{
 		}
 		try{
 			if(useSkill){
-				getSkill().render(g);
+				Skill tempSkill = (Skill) getSkill();
+				if (mana >= tempSkill.getMana()){
+					getSkill().render(g);
+					mana -= tempSkill.getMana();
+				}
 			}
 		}
 		catch(NullPointerException e){

@@ -57,7 +57,7 @@ public class Woods extends Map{
 		Cave cave = new Cave(-614, -1541, handler);
 		toCave = new Door(x +3005, y +1785, cave);
 		handler.addObject(toCave);
-		en1 = new Enemy(x + 800, y + 2688, 288, 0, "Sprites/Monster.png");
+		en1 = new Enemy(x + 800, y + 2688, 288, 0, "Sprites/Monster.png", handler);
 		handler.addObject(1, en1);
 		npc1 = new Npc(x + 2253, y + 2555, 0, 192, "Sprites/!Chest.png");
 		handler.addObject(1, npc1);

@@ -49,7 +49,7 @@ public class Cave extends Map{
 		npc1 = new Npc(x + 1027, y + 853, 0, 0, "Sprites/!Chest.png");
 		handler.addObject(1, npc1);
 		npc1.setText("Obtienes Ice explosion ability");
-		en1 = new Enemy(x + 2245, y + 203, 48, 192, "Sprites/Evil.png");
+		en1 = new Enemy(x + 2245, y + 203, 48, 192, "Sprites/Evil.png", handler);
 		handler.addObject(1,en1);
 	}
 
