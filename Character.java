@@ -5,7 +5,8 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public abstract class Character extends GameObject{
-	private BufferedImage img = null;
+	protected BufferedImage img = null;
+	protected Handler handler;
 	
 	public Character(int x, int y, int imgx, int imgy, String url){
 		super(x, y, imgx, imgy, url);
@@ -27,6 +28,17 @@ public abstract class Character extends GameObject{
 		this.anim1 = imgx - 48;
 		this.anim2 = imgx;
 		this.anim3 = imgx + 48;
+	}
+	public Character(int x, int y, int imgx, int imgy, Handler handler){
+		super(x, y, imgx, imgy);
+		this.downImgy = imgy;
+		this.leftImgy = imgy + 48;
+		this.rightImgy = imgy +96;
+		this.upImgy = imgy + 144;
+		this.anim1 = imgx - 48;
+		this.anim2 = imgx;
+		this.anim3 = imgx + 48;
+		this.handler = handler;
 	}
 
 

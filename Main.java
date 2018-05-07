@@ -22,7 +22,7 @@ public class Main extends Canvas implements Runnable{
 		Town town = new Town(-260, -160, handler);
 		town.setDoorsAndNpc();
 		handler.addObjectFirst(town);
-		handler.addObject(new Player(width/2-48, height/2-48, 192, 192));
+		handler.addObject(new Player(width/2-48, height/2-48, 192, 192, handler));
 		handler.addObject(new Dialogue("Press enter to skip this Dialogue"));
 		handler.addObject(new Inventory());
 	}
