@@ -7,6 +7,5 @@ public enum ID{
 	Map(),
 	Weapon(),
 	Skill(),
-	Door(),
-	Stats();
+	Door();
 }
