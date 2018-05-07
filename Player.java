@@ -24,7 +24,11 @@ public class Player extends Character{
 		setMana(100);
 	}
 	public void setWeapon(){
-		//this.weapon = handler.getInventory().getWeapon() ; 
+		this.weapon = handler.getInventory().getWeapon() ; 
+	}
+
+	public void setSkill(){
+		this.skill= handler.getInventory().getSkill() ; 
 	}
 
 	public void setHp(int hp){
@@ -44,7 +48,8 @@ public class Player extends Character{
 	}
 
 	public void tick(){
-
+		setWeapon();
+		setSkill();
 	}
 
 	public void render(Graphics g){

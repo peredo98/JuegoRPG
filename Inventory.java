@@ -32,11 +32,11 @@ public class Inventory extends GameObject{
 	public boolean getIsDisplaying(){
 		return isDisplaying;
 	}
-	private Item getWeapon(){
+	public Item getWeapon(){
 		return selectedWeapon;
 	}
 
-	private Item getSkill(){
+	public Item getSkill(){
 		return selectedSkill;
 	}
 

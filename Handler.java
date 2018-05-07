@@ -43,7 +43,7 @@ public class Handler{
 	public void removeDoorsAndNpc(){
 		for(int i = 0; i < object.size(); i++){
 			GameObject tempObject = object.get(i);
-			if (tempObject.getID() == ID.Door || tempObject.getID() == ID.Npc){
+			if (tempObject.getID() == ID.Door || tempObject.getID() == ID.Npc || tempObject.getID() == ID.Enemy){
 				removeObject(tempObject);
 				i = 0;
 			}
