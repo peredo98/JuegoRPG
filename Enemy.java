@@ -3,8 +3,9 @@ public class Enemy extends Character{
 	private int hp, damage;
 	private boolean isDisplayed = false;
 	
-	public Enemy(int x, int y, int imgx, int imgy, String url, Handler handler){
+	public Enemy(int x, int y, int imgx, int imgy, String url,int damage, Handler handler){
 		super(x, y, imgx, imgy, url);
+		this.damage = damage;
 		setID(ID.Enemy);
 		setHp(100);
 	}
