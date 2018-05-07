@@ -138,7 +138,7 @@ public abstract class GameObject{
 	}
 
 	public boolean isUp(){
-		if(x >= 325 && x <= 358 && y == 229){
+		if(x >= 325 && x <= 358 && y <= 230 && y >= 227){
 			return true;
 		}
 		else{
