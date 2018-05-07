@@ -8,7 +8,7 @@ import java.awt.Font;
 
 public class Player extends Character{
 
-	private int hp, mana;
+	private int hp, mana, hpTimer, manaTimer;
 	private Item skill, weapon;
 	private boolean useWeapon = false;
 	private boolean useSkill = false;
@@ -26,8 +26,10 @@ public class Player extends Character{
 		this.anim3 = imgx + 48;
 		setID(ID.Player);
 		setUrl("Sprites/Actor1.png");
-		setHp(100);
-		setMana(100);
+		setHp(75);
+		setMana(60);
+		setHpTimer(0);
+		setManaTimer(0);
 	}
 	public void setWeapon(){
 		this.weapon = handler.getInventory().getWeapon() ; 
@@ -59,6 +61,25 @@ public class Player extends Character{
 		return mana;
 	}
 
+<<<<<<< HEAD
+	public void setHpTimer(int hpTimer){
+		this.hpTimer = hpTimer;
+	}
+
+	public int getHpTimer(){
+		return hpTimer;
+	}
+
+	public void setManaTimer(int manaTimer){
+		this.manaTimer = manaTimer;
+	}
+
+	public int getManaTimer(){
+		return manaTimer;
+	}
+
+	public void useWeapon(){
+=======
 	public void setUseWeapon(boolean useWeapon){
 		this.useWeapon = useWeapon;
 	}
@@ -70,6 +91,7 @@ public class Player extends Character{
 	public boolean getUseWeapon(){
 		return useWeapon;
 	}
+>>>>>>> 8c546d32feefd32dc3956f2f223e493882fd1958
 
 	public boolean getUseSkill(){
 		return useSkill;
@@ -78,13 +100,43 @@ public class Player extends Character{
 	public void tick(){
 		setWeapon();
 		setSkill();
+
+		hpTimer += 1;
+		manaTimer += 1;
+
+		//Recover life if below 100
+		if(hp < 100 && hpTimer >= 100){
+			hp = hp + 1;
+			hpTimer = 0;
+			
+		}
+		//Recover mana if below 100
+		if(hp < 100 &&  manaTimer>= 220){
+			mana = mana + 1;
+			manaTimer = 0;
+			
+		}
+	}
+
+	public void scheduleWithFixedDelay(){
+
+	}
+
+	public void refillLife(){
+		hp += 5;
 	}
 
 	public void render(Graphics g){
 		try {
   			  img = ImageIO.read(new File(url));
   			  statBar = ImageIO.read(new File("Sprites/StatBar.png"));
+<<<<<<< HEAD
+  			  animSkill = ImageIO.read(new File("Sprites/HitFire.png"));
+  			  animWeapon = ImageIO.read(new File("Sprites/Hit2.png"));
+		} 
+=======
   		}
+>>>>>>> 8c546d32feefd32dc3956f2f223e493882fd1958
 		catch (IOException e) {
 		}
 		//Render player

@@ -104,12 +104,6 @@ public class KeyInput extends KeyAdapter{
 					inventory.setIsDisplaying(false);
 				}
 			}
-
-			//Cambios Rafa
-
-			
-
-			//Termina Cambios Rafa
 			
 		}
 	}
@@ -139,12 +133,21 @@ public class KeyInput extends KeyAdapter{
 					tempObject.setImgy(tempObject.getLeftImgy());
 				}
 				if(key == KeyEvent.VK_Q){
+<<<<<<< HEAD
+					//Magic attack
+					System.out.println("MAGIC ATTACK");
+				}
+				if(key == KeyEvent.VK_E){
+					//Melee attack
+					System.out.println("MELEE ATTACK");
+=======
 					Player player = (Player)tempObject;
 					player.setUseWeapon(false);
 				}
 				if(key == KeyEvent.VK_E){
 					Player player = (Player)tempObject;
 					player.setUseSkill(false);
+>>>>>>> 8c546d32feefd32dc3956f2f223e493882fd1958
 				}
 			}
 
@@ -174,6 +177,13 @@ public class KeyInput extends KeyAdapter{
 				Npc tempNpc = (Npc) tempObject;
 				if(key == KeyEvent.VK_ENTER && tempNpc.isNearby() && !handler.isDialogueDisplaying() && !tempNpc.getIsDisplayed()){
 					handler.addObject(tempNpc.getDialogue());
+				}
+			}
+
+			if(tempObject.getID() == ID.Enemy){
+				Enemy tempEnemy = (Enemy) tempObject;
+				if((key == KeyEvent.VK_Q || key == KeyEvent.VK_E) && tempEnemy.isNearby() && !handler.isDialogueDisplaying() && !tempEnemy.getIsDisplayed()){
+					System.out.println("Attack near enemy.");
 				}
 			}
 			
