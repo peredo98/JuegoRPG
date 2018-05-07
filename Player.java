@@ -161,7 +161,6 @@ public class Player extends Character{
 			}
 		}
 		catch(NullPointerException e){
-			System.out.println("You must equip an Skill in inventory, use 'I' to open inventory");
 		}
 	}
 

@@ -58,7 +58,16 @@ public class KeyInput extends KeyAdapter{
 				}
 				if(key == KeyEvent.VK_E){
 					Player player = (Player)tempObject;
-					player.setUseSkill(true);
+					Skill playerSkill = null;
+					try{
+						playerSkill = (Skill) player.getSkill();
+						if(player.getMana() >= playerSkill.getMana()){
+							player.setUseSkill(true);
+						}
+					}catch(NullPointerException ex){
+						System.out.println("You must equip an Skill in inventory, use 'I' to open inventory");
+					}
+					
 				}
 			}
 
