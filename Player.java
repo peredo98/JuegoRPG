@@ -1,13 +1,19 @@
 import java.awt.Graphics;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.awt.Font;
 
 public class Player extends Character{
 
 	private int hp, mana;
 	private Item skill, weapon;
+	private BufferedImage animWeapon;
+	private BufferedImage animSkill;
+
+	private BufferedImage statBar = null;
 
 	public Player(int x, int y, int imgx, int imgy, Handler handler){
 		super(x, y, imgx, imgy, handler);
@@ -53,6 +59,10 @@ public class Player extends Character{
 		return mana;
 	}
 
+	public void useWeapon(){
+
+	}
+
 	public void tick(){
 		setWeapon();
 		setSkill();
@@ -61,12 +71,26 @@ public class Player extends Character{
 	public void render(Graphics g){
 		try {
   			  img = ImageIO.read(new File(url));
+<<<<<<< HEAD
+  			  statBar = ImageIO.read(new File("Sprites/StatBar.png"));
+=======
+  			  animSkill = ImageIO.read(new File("Sprites/HitFire.png"));
+  			  animWeapon = ImageIO.read(new File("Sprites/Hit2.png"));
+>>>>>>> 1ad7f06ae581efcd8d99482d5555d9dc6c00cd29
 		} 
 		catch (IOException e) {
 		}
+		//Render player
 		img = img.getSubimage(imgx, imgy, 48, 48);
 		g.drawImage(img, x, y, 48, 48, null);
-		g.drawString("HP: " + getHp(), 100, 500);
+		//Render HP and Mana Box
+		g.drawImage(statBar, 40, 40, 200, 40, null);
+
+		g.setColor(new Color(95, 172, 91));
+		g.setFont(new Font("Lato", Font.BOLD, 16)); 
+		g.drawString("HP: " + getHp(), 60, 65);
+		g.setColor(Color.BLUE);
+		g.drawString("Mana: " + getMana(), 140, 65);
 	}
 
 }
