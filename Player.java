@@ -109,7 +109,7 @@ public class Player extends Character{
 			
 		}
 		//Recover mana if below 100
-		if(hp < 100 &&  manaTimer>= 220){
+		if(mana < 100 &&  manaTimer>= 220){
 			mana = mana + 1;
 			manaTimer = 0;
 			
