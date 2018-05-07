@@ -10,8 +10,8 @@ public class Player extends Character{
 
 	private int hp, mana, hpTimer, manaTimer;
 	private Item skill, weapon;
-	private BufferedImage animWeapon;
-	private BufferedImage animSkill;
+	private boolean useWeapon = false;
+	private boolean useSkill = false;
 
 	private BufferedImage statBar = null;
 
@@ -61,6 +61,7 @@ public class Player extends Character{
 		return mana;
 	}
 
+<<<<<<< HEAD
 	public void setHpTimer(int hpTimer){
 		this.hpTimer = hpTimer;
 	}
@@ -78,7 +79,22 @@ public class Player extends Character{
 	}
 
 	public void useWeapon(){
+=======
+	public void setUseWeapon(boolean useWeapon){
+		this.useWeapon = useWeapon;
+	}
 
+	public void setUseSkill(boolean useSkill){
+		this.useSkill = useSkill;
+	}
+
+	public boolean getUseWeapon(){
+		return useWeapon;
+	}
+>>>>>>> 8c546d32feefd32dc3956f2f223e493882fd1958
+
+	public boolean getUseSkill(){
+		return useSkill;
 	}
 
 	public void tick(){
@@ -114,9 +130,13 @@ public class Player extends Character{
 		try {
   			  img = ImageIO.read(new File(url));
   			  statBar = ImageIO.read(new File("Sprites/StatBar.png"));
+<<<<<<< HEAD
   			  animSkill = ImageIO.read(new File("Sprites/HitFire.png"));
   			  animWeapon = ImageIO.read(new File("Sprites/Hit2.png"));
 		} 
+=======
+  		}
+>>>>>>> 8c546d32feefd32dc3956f2f223e493882fd1958
 		catch (IOException e) {
 		}
 		//Render player
@@ -130,6 +150,23 @@ public class Player extends Character{
 		g.drawString("HP: " + getHp(), 60, 65);
 		g.setColor(Color.BLUE);
 		g.drawString("Mana: " + getMana(), 140, 65);
+
+		try{
+			if(useWeapon){
+				getWeapon().render(g);
+			}
+		}
+		catch(NullPointerException e){
+			System.out.println("You must equip a Weapon in inventory, use 'I' to open inventory");
+		}
+		try{
+			if(useSkill){
+				getSkill().render(g);
+			}
+		}
+		catch(NullPointerException e){
+			System.out.println("You must equip an Skill in inventory, use 'I' to open inventory");
+		}
 	}
 
 }

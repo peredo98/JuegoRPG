@@ -50,6 +50,14 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_A){
 					tempObject.setImgy(tempObject.getLeftImgy());
 				}
+				if(key == KeyEvent.VK_Q){
+					Player player = (Player)tempObject;
+					player.setUseWeapon(true);
+				}
+				if(key == KeyEvent.VK_E){
+					Player player = (Player)tempObject;
+					player.setUseSkill(true);
+				}
 			}
 
 			//Movimiento 
@@ -125,12 +133,21 @@ public class KeyInput extends KeyAdapter{
 					tempObject.setImgy(tempObject.getLeftImgy());
 				}
 				if(key == KeyEvent.VK_Q){
+<<<<<<< HEAD
 					//Magic attack
 					System.out.println("MAGIC ATTACK");
 				}
 				if(key == KeyEvent.VK_E){
 					//Melee attack
 					System.out.println("MELEE ATTACK");
+=======
+					Player player = (Player)tempObject;
+					player.setUseWeapon(false);
+				}
+				if(key == KeyEvent.VK_E){
+					Player player = (Player)tempObject;
+					player.setUseSkill(false);
+>>>>>>> 8c546d32feefd32dc3956f2f223e493882fd1958
 				}
 			}
 

@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
@@ -105,6 +106,8 @@ public abstract class Item{
 	public ID getID(){
 		return id;
 	}
+	public abstract void render(Graphics g);
+
 	public BufferedImage getImage(){
 		BufferedImage img = null;
 		try {
