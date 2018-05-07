@@ -6,8 +6,7 @@ import java.io.IOException;
 public abstract class Item{
 	private int imgx, imgy, imgw, imgh, cellx, cellx1, celly, celly1;
 	private String url;
-	private Boolean isDragged = false;
-
+	private ID id;
 	
 	public Item(int imgx, int imgy, int imgw, int imgh, String url){
 		this.imgx = imgx;
@@ -23,6 +22,7 @@ public abstract class Item{
 		this.celly = celly;
 		this.celly1 = celly1;
 	}
+
 
 	public void setCellx(int cellx){
 		this.cellx = cellx;
@@ -43,13 +43,6 @@ public abstract class Item{
 	}
 	public int getCelly1(){
 		return celly1;
-	}
-
-	public void setIsDragged(boolean isDragged){
-		this.isDragged = isDragged;
-	}
-	public boolean getIsDragged(){
-		return isDragged;
 	}
 
 	public void setImgx(int imgx){
@@ -81,6 +74,12 @@ public abstract class Item{
 	}
 	public String getUrl(){
 		return url;
+	}
+	public void setID(ID id){
+		this.id = id;
+	}
+	public ID getID(){
+		return id;
 	}
 	public BufferedImage getImage(){
 		BufferedImage img = null;
