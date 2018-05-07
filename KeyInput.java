@@ -7,6 +7,7 @@ public class KeyInput extends KeyAdapter{
 	private int delay = 0;
 	private int changeRate = 5;
 	private int vel = 3;
+	private Player player;
 
 	public KeyInput(Handler handler){
 		this.handler = handler;
@@ -14,13 +15,14 @@ public class KeyInput extends KeyAdapter{
 
 	public void keyPressed(KeyEvent e){
 		int key = e.getKeyCode();
-
+		player = handler.getPlayer();
 		for(int i = 0; i < handler.object.size(); i++){
 
 			GameObject tempObject = handler.object.get(i);
 
 			//Animacion del jugador
 			int imgx = tempObject.getImgx();
+
 
 
 			if(tempObject.getID() == ID.Player && !handler.isDialogueDisplaying()){
@@ -57,6 +59,19 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_E){
 					Player player = (Player)tempObject;
 					player.setUseSkill(true);
+				}
+			}
+
+			if(tempObject.getID() == ID.Enemy){
+				Enemy tempEnemy = (Enemy) tempObject;
+				if(tempEnemy.isNearby()){
+					player.setHp(player.getHp() - tempEnemy.getDamage());
+					if(player.getUseWeapon()){
+						tempEnemy.setHp(tempEnemy.getHp() - player.getWeapon().getDamage());
+					}
+					if(player.getUseSkill()){
+						tempEnemy.setHp(tempEnemy.getHp() - player.getSkill().getDamage());
+					}
 				}
 			}
 
@@ -139,6 +154,14 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_E){
 					Player player = (Player)tempObject;
 					player.setUseSkill(false);
+				}
+
+			}
+
+			if(tempObject.getID() == ID.Npc){
+				Npc tempNpc = (Npc) tempObject;
+				if(key == KeyEvent.VK_ENTER && tempNpc.isNearby() && !handler.isDialogueDisplaying() && !tempNpc.getIsDisplayed()){
+					handler.addObject(tempNpc.getDialogue());
 				}
 			}
 

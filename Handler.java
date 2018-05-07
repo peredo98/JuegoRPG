@@ -8,6 +8,7 @@ public class Handler{
 	private int counter = 0;
 
 	public void tick(){
+		killEnemy();
 		for(int i = 0; i < object.size(); i++){
 			GameObject tempObject = object.get(i);
 			tempObject.tick();
@@ -85,5 +86,28 @@ public class Handler{
 			}
 		}
 		return inv;
+	}
+
+	public Player getPlayer(){
+		Player player = null;
+		for(int i = 0; i < object.size(); i++){
+			GameObject tempObject = object.get(i);
+			if (tempObject.getID() == ID.Player){
+				player = (Player) tempObject;
+			}
+		}
+		return player;
+	}
+	public void killEnemy(){
+		Enemy enemy = null;
+		for(int i = 0; i < object.size(); i++){
+			GameObject tempObject = object.get(i);
+			if (tempObject.getID() == ID.Enemy){
+				enemy = (Enemy) tempObject;
+				if(enemy.getHp() < 0){
+					removeObject(enemy);
+				}
+			}
+		}
 	}
 }
