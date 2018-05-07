@@ -1,6 +1,7 @@
 public class Enemy extends Character{
 
 	private int hp, damage;
+	private boolean isDisplayed = false;
 	
 	public Enemy(int x, int y, int imgx, int imgy, String url){
 		super(x, y, imgx, imgy, url);
@@ -22,6 +23,10 @@ public class Enemy extends Character{
 
 	public int getDamage(){
 		return damage;
+	}
+
+	public boolean getIsDisplayed(){
+		return isDisplayed;
 	}
 
 }
