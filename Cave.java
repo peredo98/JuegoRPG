@@ -8,6 +8,8 @@ public class Cave extends Map{
 	private BufferedImage img = null;
 	private Handler handler;
 	private Door toWoods;
+	private Npc npc1;
+	private Enemy en1;
 
 	public Cave(int x, int y, Handler handler){
 		super(x, y);
@@ -35,11 +37,20 @@ public class Cave extends Map{
 		g.drawImage(img, x, y, 2624, 1920, null);
 		toWoods.setX(x +960);
 		toWoods.setY(y + 1920);
+		npc1.setX(x + 2253);
+		npc1.setY(y + 2555);
+		en1.setX(x + 3080);
+		en1.setY(y + 2210);
 	}
 	public void setDoorsAndNpc(){
 		Woods woods = new Woods(-2665, -1623, handler);
 		toWoods = new Door(x +960, y +1920, woods);
 		handler.addObject(toWoods);
+		npc1 = new Npc(x + 2253, y + 2555, 0, 192, "Sprites/!Chest.png");
+		handler.addObject(1, npc1);
+		npc1.setText("Obtienes Ice explosion ability");
+		en1 = new Enemy(x + 800, y + 2688, 48, 192, "Sprites/Evil.png");
+		handler.addObject(1,en1);
 	}
 
 

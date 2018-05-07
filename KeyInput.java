@@ -99,15 +99,7 @@ public class KeyInput extends KeyAdapter{
 
 			//Cambios Rafa
 
-			if(tempObject.getID() == ID.stats){
-				statRender statRender = (statRender) tempObject;
-				if(key == KeyEvent.VK_O && !handler.isDialogueDisplaying()){
-					statRender.setIsDisplaying(true);
-				}
-				else if(key == KeyEvent.VK_0 && !handler.isDialogueDisplaying()){
-					statRender.setIsDisplaying(false);
-				}
-			}
+			
 
 			//Termina Cambios Rafa
 			
