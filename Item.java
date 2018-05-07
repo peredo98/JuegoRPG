@@ -7,13 +7,26 @@ public abstract class Item{
 	private int imgx, imgy, imgw, imgh, cellx, cellx1, celly, celly1;
 	private String url;
 	private ID id;
+	private String name;
+	private int damage;
+	private boolean hover = false;
 	
-	public Item(int imgx, int imgy, int imgw, int imgh, String url){
+	public Item(int imgx, int imgy, int imgw, int imgh, String url, String name, int damage){
 		this.imgx = imgx;
 		this.imgy = imgy;
 		this.imgw = imgw;
 		this.imgh = imgh;
 		this.url = url;
+		this.damage = damage;
+		this.name = name;
+		this.damage = damage;
+	}
+	public void setHover(boolean hover){
+		this.hover = hover;
+	}
+
+	public boolean getHover(){
+		return hover;
 	}
 
 	public void setBounds(int cellx, int cellx1, int celly, int celly1){
@@ -22,7 +35,18 @@ public abstract class Item{
 		this.celly = celly;
 		this.celly1 = celly1;
 	}
-
+	public void setName(String name){
+		this.name = name;
+	}
+	public String getName(){
+		return name;
+	}
+	public void setDamage(int damage){
+		this.damage = damage;
+	}
+	public int getDamage(){
+		return damage;
+	}
 
 	public void setCellx(int cellx){
 		this.cellx = cellx;
@@ -90,6 +114,18 @@ public abstract class Item{
 		catch (IOException e) {
 		}
 		return img;
+	}
+
+	public String getType(){
+		if(id == ID.Weapon){
+			return "Weapon";
+		}
+		if(id == ID.Skill){
+			return "Skill";
+		}
+		else{
+			return "";
+		}
 	}
 
 }

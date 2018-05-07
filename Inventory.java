@@ -21,9 +21,9 @@ public class Inventory extends GameObject{
 
 	public Inventory(){
 		setID(ID.Inventory);
-		addItem(new Weapon(0, 192, 32, 32, "Sprites/IconSet.png"));
-		addItem(new Weapon(416, 128, 32, 32, "Sprites/IconSet.png"));
-		addItem(new Skill(0, 128, 32, 32, "Sprites/IconSet.png"));
+		addItem(new Weapon(0, 192, 32, 32, "Sprites/IconSet.png", "Normal sword", 30));
+		addItem(new Weapon(416, 128, 32, 32, "Sprites/IconSet.png", "Punch", 10));
+		addItem(new Skill(0, 128, 32, 32, "Sprites/IconSet.png", "Fire Attack", 50, 60));
 	}
 
 	public void setIsDisplaying(boolean isDisplaying){
@@ -65,10 +65,22 @@ public class Inventory extends GameObject{
 				}
 			}
 
-			for(int i = 0; i<bag.length; i++){
-				for(int j = 0; j<bag[i].length; j++){
+			for(int i = bag.length -1; i >= 0; i--){
+				for(int j = bag.length -1; j >= 0; j--){
 					try{
-					g.drawImage(bag[i][j].getImage(), bag[i][j].getCellx(), bag[i][j].getCelly(), 50 , 50, null);
+						if(bag[i][j].getHover()){
+							g.setColor(Color.DARK_GRAY);
+							g.fillRect(bag[i][j].getCellx() + 50, bag[i][j].getCelly() - 60, 200 , 100);
+							g.setColor(Color.lightGray);
+							g.drawString(("Type: " + bag[i][j].getType()),bag[i][j].getCellx() + 70, bag[i][j].getCelly() - 40);
+							g.drawString(("Name: " + bag[i][j].getName()),bag[i][j].getCellx() + 70, bag[i][j].getCelly() - 20);
+							g.drawString(("Damage: " + bag[i][j].getDamage()),bag[i][j].getCellx() + 70, bag[i][j].getCelly());
+							if(bag[i][j].getType() == "Skill"){
+								Skill tempSkill = (Skill) bag[i][j];
+								g.drawString(("Mana: " + tempSkill.getMana()),tempSkill.getCellx() + 70, tempSkill.getCelly()+20);
+							}
+						}
+						g.drawImage(bag[i][j].getImage(), bag[i][j].getCellx(), bag[i][j].getCelly(), 50 , 50, null);
 					}
 					catch(NullPointerException e){}
 				}

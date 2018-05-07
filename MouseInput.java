@@ -5,10 +5,31 @@ import javax.swing.event.MouseInputAdapter;
 public class MouseInput extends MouseInputAdapter{
 	private Handler handler;
 	private Item selectedItem;
+	private Item hoveredItem;
 	public MouseInput(Handler handler){
 		this.handler = handler;
 	}
 
+	public void mouseMoved(MouseEvent e){
+		Inventory inv = handler.getInventory();
+		if(inv.getIsDisplaying()){
+			for(int i = 0; i < inv.items.length; i++){
+				try{
+					Item tempItem = inv.items[i];
+					if(e.getX() >= tempItem.getCellx() && e.getX() <= tempItem.getCellx1() && e.getY() >= tempItem.getCelly() && e.getY() <= tempItem.getCelly1()){
+						hoveredItem = tempItem;
+						hoveredItem.setHover(true);
+						break;	
+					}
+					else if(!(e.getX() >= tempItem.getCellx() && e.getX() <= tempItem.getCellx1() && e.getY() >= tempItem.getCelly() && e.getY() <= tempItem.getCelly1())){
+						hoveredItem.setHover(false);
+					}
+				}
+				catch(NullPointerException ex){
+				}
+			}
+		}
+	}
 	public void mouseReleased(MouseEvent e){
 		Inventory inv = handler.getInventory();
 		inv.moveItem(selectedItem);
@@ -16,7 +37,6 @@ public class MouseInput extends MouseInputAdapter{
 	}
 
 	public void mouseDragged(MouseEvent e){
-		//System.out.println(e.getX() + " " + e.getY());
 		Inventory inv = handler.getInventory();
 		if(inv.getIsDisplaying()){
 			for(int i = 0; i < inv.items.length; i++){
