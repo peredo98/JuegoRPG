@@ -12,9 +12,10 @@ public class Main extends Canvas implements Runnable{
 
 	public Main(){
 		handler = new Handler();
-
+		MouseInput mi = new MouseInput(handler);
 		this.addKeyListener(new KeyInput(handler));
-		this.addMouseMotionListener(new MouseInput(handler));
+		this.addMouseMotionListener(mi);
+		this.addMouseListener(mi);
 
 	 	new GameWindow(width, height, "Don Chuy's Legendary Taco", this);
 

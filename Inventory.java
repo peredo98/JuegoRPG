@@ -85,6 +85,32 @@ public class Inventory extends GameObject{
    		items.remove(item);
 	}
 
-	
+	public void moveItem(Item item){
+		try{
+			int index = items.indexOf(item);
+			int x = index%5;
+	   		int y = index/5;
+			for(int i = 0; i<bag.length; i++){
+				for(int j = 0; j<bag[i].length; j++){
+					int cellx = 435+(i*54);
+					int celly = 160+(j*54);
+					if((item.getCellx() + 25 ) >= cellx && (item.getCellx() + 25 ) <= (cellx + 50) && (item.getCelly() + 25 ) >= celly && (item.getCelly() + 25 ) <= (celly + 50) ){
+						if(bag[i][j] != null){
+							Item lastItem = items.get(j*5+i);
+							items.set(index, lastItem);
+							lastItem.setBounds(435+(x*54), 435+(x*54)+50, 160+(y*54), 160+(y*54)+50);
+							bag[x][y] = lastItem;
+						}
+						bag[i][j] = item;
+						items.set((j*5+i), item);
+						item.setBounds(435+(i*54), 435+(i*54)+50, 160+(j*54), 160+(j*54)+50);
+						return;
+					}
+				}
+			}
+	   		item.setBounds(435+(x*54), 435+(x*54)+50, 160+(y*54), 160+(y*54)+50);
+	   		bag[x][y] = item;
+		}catch(NullPointerException e){}
+	}
 
 }

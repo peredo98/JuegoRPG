@@ -1,15 +1,18 @@
 import java.awt.MouseInfo;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import javax.swing.event.MouseInputAdapter;
 
-public class MouseInput extends MouseMotionAdapter{
+public class MouseInput extends MouseInputAdapter{
 	private Handler handler;
+	private Item selectedItem;
 	public MouseInput(Handler handler){
 		this.handler = handler;
 	}
 
-	public void mouseMoved(MouseEvent e){
-		
+	public void mouseReleased(MouseEvent e){
+		Inventory inv = handler.getInventory();
+		inv.moveItem(selectedItem);
+		selectedItem = null;
 	}
 
 	public void mouseDragged(MouseEvent e){
@@ -20,11 +23,14 @@ public class MouseInput extends MouseMotionAdapter{
 
 				Item tempItem = inv.items.get(i);
 
-				if(e.getX() >= tempItem.getCellx() && e.getX() <= tempItem.getCellx1() && e.getY() >= tempItem.getCelly() && e.getY() <= tempItem.getCelly1()){
-					System.out.println(e.getX() + " " + e.getY());
-					tempItem.setCellx(e.getX()-25);
-					tempItem.setCelly(e.getY()-25);
 
+				if(selectedItem == null && e.getX() >= tempItem.getCellx() && e.getX() <= tempItem.getCellx1() && e.getY() >= tempItem.getCelly() && e.getY() <= tempItem.getCelly1()){
+					selectedItem = tempItem;			
+				}
+				if(selectedItem != null && e.getX() >= selectedItem.getCellx() && e.getX() <= selectedItem.getCellx1() && e.getY() >= selectedItem.getCelly() && e.getY() <= selectedItem.getCelly1()){
+					System.out.println(e.getX() + " " + e.getY());
+					selectedItem.setCellx(e.getX()-25);
+					selectedItem.setCelly(e.getY()-25);
 				}
 			}
 		}
