@@ -203,6 +203,15 @@ public class KeyInput extends KeyAdapter{
 				}
 			}
 
+			if(tempObject.getID() == ID.Chest){
+				Chest tempChest = (Chest) tempObject;
+				if(key == KeyEvent.VK_ENTER && tempChest.isNearby() && !handler.isDialogueDisplaying() && !tempChest.getIsDisplayed()){
+					handler.addObject(tempChest.getDialogue());
+					System.out.println("Add weapon");
+					(handler.getInventory()).addItem(new Skill(0, 128, 32, 32, "Sprites/IconSet.png", "La Secreta", 1000, 25));
+				}
+			}
+
 			if(tempObject.getID() == ID.Enemy){
 				Enemy tempEnemy = (Enemy) tempObject;
 				if((key == KeyEvent.VK_Q || key == KeyEvent.VK_E) && tempEnemy.isNearby() && !handler.isDialogueDisplaying() && !tempEnemy.getIsDisplayed()){

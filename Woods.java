@@ -15,8 +15,8 @@ public class Woods extends Map{
 	private Enemy en4;
 	private Enemy en5;
 	private Enemy en6;
-	private Npc npc1;
-	private Npc npc2;
+	private Chest chest1; //Chest 1
+	private Chest chest2; //Chest 2
 
 	public Woods(int x, int y, Handler handler){
 		super(x, y);
@@ -47,10 +47,10 @@ public class Woods extends Map{
 		toTown.setY(y + 2688);
 		toCave.setX(x + 3005);
 		toCave.setY(y + 1785);
-		npc1.setX(x + 2253);
-		npc1.setY(y + 2555);
-		npc2.setX(x + 3080);
-		npc2.setY(y + 2210);
+		chest1.setX(x + 2253);
+		chest1.setY(y + 2555);
+		chest2.setX(x + 3080);
+		chest2.setY(y + 2210);
 		en1.setX(x + 1500);
 		en1.setY(y + 2050);
 		en2.setX(x + 2253);
@@ -72,12 +72,12 @@ public class Woods extends Map{
 		Cave cave = new Cave(-614, -1541, handler);
 		toCave = new Door(x +3005, y +1785, cave);
 		handler.addObject(toCave);
-		npc1 = new Npc(x + 2253, y + 2555, 0, 192, "Sprites/!Chest.png");
-		handler.addObject(1, npc1);
-		npc1.setText("Obtienes Iron Sword x1");
-		npc2 = new Npc(x + 3080, y + 2210, 0, 192, "Sprites/!Chest.png");
-		handler.addObject(1,npc2);
-		npc2.setText("Obtienes Iron Punch x1");
+		chest1 = new Chest(x + 2253, y + 2555, 0, 192, "Sprites/!Chest.png");
+		handler.addObject(1, chest1);
+		chest1.setText("Obtienes Iron Sword x1");
+		chest2 = new Chest(x + 3080, y + 2210, 0, 192, "Sprites/!Chest.png");
+		handler.addObject(1,chest2);
+		chest2.setText("Obtienes Iron Punch x1");
 		en1 = new Enemy(x + 1500, y + 2000, 336, 48, "Sprites/Monster.png",5, handler);
 		handler.addObject(1, en1);
 		en2 = new Enemy(x + 2253, y + 2470, 336, 144, "Sprites/Monster.png",5, handler);
