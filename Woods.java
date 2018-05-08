@@ -74,10 +74,10 @@ public class Woods extends Map{
 		handler.addObject(toCave);
 		chest1 = new Chest(x + 2253, y + 2555, 0, 192, "Sprites/!Chest.png");
 		handler.addObject(1, chest1);
-		chest1.setText("You have obtained a new item! Open your inventory to equip it.");
+		chest1.setText("You found a new item! Open your inventory to equip it.");
 		chest2 = new Chest(x + 3080, y + 2210, 0, 192, "Sprites/!Chest.png");
 		handler.addObject(1,chest2);
-		chest2.setText("You have obtained a new item! Open your inventory to equip it.");
+		chest2.setText("You found a new item! Open your inventory to equip it.");
 		en1 = new Enemy(x + 1500, y + 2000, 336, 48, "Sprites/Monster.png",5, handler);
 		handler.addObject(1, en1);
 		en2 = new Enemy(x + 2253, y + 2470, 336, 144, "Sprites/Monster.png",5, handler);

@@ -8,7 +8,7 @@ public class Cave extends Map{
 	private BufferedImage img = null;
 	private Handler handler;
 	private Door toWoods;
-	private Npc npc1;
+	private Chest chest1;
 	private Enemy en1;
 	private Enemy en2;
 	private Enemy en3;
@@ -41,10 +41,10 @@ public class Cave extends Map{
 		g.drawImage(img, x, y, 2624, 1920, null);
 		toWoods.setX(x +960);
 		toWoods.setY(y + 1920);
-		npc1.setX(x + 1027);
-		npc1.setY(y + 853);
+		chest1.setX(x + 1027);
+		chest1.setY(y + 853);
 		en1.setX(x + 2245);
-		en1.setY(y + 203);
+		en1.setY(y + 220);
 		en2.setX(x + 980);
 		en2.setY(y + 1300);
 		en3.setX(x + 1700);
@@ -58,18 +58,18 @@ public class Cave extends Map{
 		Woods woods = new Woods(-2665, -1623, handler);
 		toWoods = new Door(x +960, y +1920, woods);
 		handler.addObject(toWoods);
-		npc1 = new Npc(x + 1027, y + 853, 0, 0, "Sprites/!Chest.png");
-		handler.addObject(1, npc1);
-		npc1.setText("Obtienes Ice explosion ability");
-		en1 = new Enemy(x + 2245, y + 203, 48, 192, "Sprites/Evil.png",10, handler);
+		chest1 = new Chest(x + 1027, y + 853, 0, 0, "Sprites/!Chest.png");
+		handler.addObject(1, chest1);
+		chest1.setText("You found a new item! Open your inventory to equip it.");
+		en1 = new Enemy(x + 2245, y + 220, 48, 192, "Sprites/Evil.png",20, handler);
 		handler.addObject(1,en1);
-		en2 = new Enemy(x + 980, y + 1300, 48, 0, "Sprites/Monster.png",10, handler);
+		en2 = new Enemy(x + 980, y + 1300, 48, 0, "Sprites/Monster.png",7, handler);
 		handler.addObject(1,en2);
-		en3 = new Enemy(x + 1700, y + 910, 48, 48, "Sprites/Monster.png",10, handler);
+		en3 = new Enemy(x + 1700, y + 910, 48, 48, "Sprites/Monster.png",7, handler);
 		handler.addObject(1,en3);
-		en4 = new Enemy(x + 1030, y + 1300, 48, 0, "Sprites/Monster.png",10, handler);
+		en4 = new Enemy(x + 1030, y + 1300, 48, 0, "Sprites/Monster.png",7, handler);
 		handler.addObject(1,en4);
-		en5 = new Enemy(x + 1700, y + 960, 48, 48, "Sprites/Monster.png",10, handler);
+		en5 = new Enemy(x + 1700, y + 960, 48, 48, "Sprites/Monster.png",7, handler);
 		handler.addObject(1,en5);
 	}
 

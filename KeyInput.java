@@ -219,7 +219,7 @@ public class KeyInput extends KeyAdapter{
 						chestCounter += 1;
 						break;
 						case 1:
-						(handler.getInventory()).addItem(new Weapon(288, 192, 32, 32, "Sprites/IconSet.png", "Iron Gloves", 24));
+						(handler.getInventory()).addItem(new Skill(32, 128, 32, 32, "Sprites/IconSet.png", "Ice Storm", 50, 15));
 						chestCounter += 1;
 						break;
 						case 2:
