@@ -1,6 +1,6 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
+import java.util.Random;
 
 public class KeyInput extends KeyAdapter{
 	private Handler handler;
@@ -75,7 +75,10 @@ public class KeyInput extends KeyAdapter{
 			if(tempObject.getID() == ID.Enemy){
 				Enemy tempEnemy = (Enemy) tempObject;
 				if(tempEnemy.isNearby()){
+					if(delay  < 5){
 					player.setHp(player.getHp() - tempEnemy.getDamage());
+					System.out.println("You have been hitted");
+					}
 					if(player.getUseWeapon()){
 						tempEnemy.setHp(tempEnemy.getHp() - player.getWeapon().getDamage());
 					}

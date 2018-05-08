@@ -23,7 +23,7 @@ public class Main extends Canvas implements Runnable{
 		town.setDoorsAndNpc();
 		handler.addObjectFirst(town);
 		handler.addObject(new Player(width/2-48, height/2-48, 192, 192, handler));
-		handler.addObject(new Dialogue("Press enter to skip this Dialogue"));
+		handler.addObject(new Dialogue("Press enter to skip Dialogues"));
 		handler.addObject(new Inventory());
 	}
 	public synchronized void start(){
