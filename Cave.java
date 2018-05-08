@@ -10,10 +10,6 @@ public class Cave extends Map{
 	private Door toWoods;
 	private Npc npc1;
 	private Enemy en1;
-	private Enemy en2;
-	private Enemy en3;
-	private Enemy en4;
-	private Enemy en5;
 
 	public Cave(int x, int y, Handler handler){
 		super(x, y);
@@ -45,14 +41,6 @@ public class Cave extends Map{
 		npc1.setY(y + 853);
 		en1.setX(x + 2245);
 		en1.setY(y + 203);
-		en2.setX(x + 980);
-		en2.setY(y + 1300);
-		en3.setX(x + 1700);
-		en3.setY(y + 910);
-		en4.setX(x + 1030);
-		en4.setY(y + 1300);
-		en5.setX(x + 1700);
-		en5.setY(y + 960);
 	}
 	public void setDoorsAndNpc(){
 		Woods woods = new Woods(-2665, -1623, handler);
@@ -63,14 +51,6 @@ public class Cave extends Map{
 		npc1.setText("Obtienes Ice explosion ability");
 		en1 = new Enemy(x + 2245, y + 203, 48, 192, "Sprites/Evil.png",10, handler);
 		handler.addObject(1,en1);
-		en2 = new Enemy(x + 980, y + 1300, 48, 0, "Sprites/Monster.png",10, handler);
-		handler.addObject(1,en2);
-		en3 = new Enemy(x + 1700, y + 910, 48, 48, "Sprites/Monster.png",10, handler);
-		handler.addObject(1,en3);
-		en4 = new Enemy(x + 1030, y + 1300, 48, 0, "Sprites/Monster.png",10, handler);
-		handler.addObject(1,en4);
-		en5 = new Enemy(x + 1700, y + 960, 48, 48, "Sprites/Monster.png",10, handler);
-		handler.addObject(1,en5);
 	}
 
 

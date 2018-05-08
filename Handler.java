@@ -8,11 +8,6 @@ public class Handler{
 	private int counter = 0;
 
 	public void tick(){
-<<<<<<< HEAD
-=======
-		killEnemy();
-		killPlayer();
->>>>>>> 6faf57595f161cf3173298fc77b50f54edde0d47
 		for(int i = 0; i < object.size(); i++){
 			GameObject tempObject = object.get(i);
 			tempObject.tick();
@@ -91,37 +86,4 @@ public class Handler{
 		}
 		return inv;
 	}
-<<<<<<< HEAD
-=======
-
-	public Player getPlayer(){
-		Player player = null;
-		for(int i = 0; i < object.size(); i++){
-			GameObject tempObject = object.get(i);
-			if (tempObject.getID() == ID.Player){
-				player = (Player) tempObject;
-			}
-		}
-		return player;
-	}
-	public void killEnemy(){
-		Enemy enemy = null;
-		for(int i = 0; i < object.size(); i++){
-			GameObject tempObject = object.get(i);
-			if (tempObject.getID() == ID.Enemy){
-				enemy = (Enemy) tempObject;
-				if(enemy.getHp() < 0){
-					removeObject(enemy);
-				}
-			}
-		}
-	}
-	public void killPlayer(){
-		Player player = getPlayer();
-		if(player.getHp() < 0){
-			System.out.println("GG, U DED NIGGA! U HAVE DISSAPPOINTED DON CHUY!!!! MADAFAKA!!!!!");
-			System.exit(1);
-		}
-	}
->>>>>>> 6faf57595f161cf3173298fc77b50f54edde0d47
 }
