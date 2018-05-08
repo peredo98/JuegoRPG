@@ -72,13 +72,11 @@ public class KeyInput extends KeyAdapter{
 				}
 			}
 
-			if(tempObject.getID() == ID.Enemy){
+			if(tempObject.getID() == ID.Enemy || tempObject.getID() == ID.Boss){
 				Enemy tempEnemy = (Enemy) tempObject;
 				if(tempEnemy.isNearby()){
-					if(delay  < 5){
 					player.setHp(player.getHp() - tempEnemy.getDamage());
 					System.out.println("You have been hitted");
-					}
 					if(player.getUseWeapon()){
 						tempEnemy.setHp(tempEnemy.getHp() - player.getWeapon().getDamage());
 					}
@@ -223,7 +221,7 @@ public class KeyInput extends KeyAdapter{
 						chestCounter += 1;
 						break;
 						case 2:
-						(handler.getInventory()).addItem(new Skill(320, 0, 32, 32, "Sprites/IconSet.png", "ONE PUNCH", 10000, 1));
+						(handler.getInventory()).addItem(new OnePunch(320, 0, 32, 32, "Sprites/IconSet.png", "ONE PUNCH", 10000, 1));
 						chestCounter += 1;
 						break;
 						default:
@@ -233,12 +231,6 @@ public class KeyInput extends KeyAdapter{
 				}
 			}
 
-			if(tempObject.getID() == ID.Enemy){
-				Enemy tempEnemy = (Enemy) tempObject;
-				if((key == KeyEvent.VK_Q || key == KeyEvent.VK_E) && tempEnemy.isNearby() && !handler.isDialogueDisplaying() && !tempEnemy.getIsDisplayed()){
-					System.out.println("Attack near enemy.");
-				}
-			}
 			
 		}
 	}

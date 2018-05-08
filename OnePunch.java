@@ -4,13 +4,12 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OnePunch extends Item{
+public class OnePunch extends Skill{
 	private BufferedImage img = null;
 	private int mana;
 	private int delay = 0;
 	public OnePunch(int imgx, int imgy, int imgw, int imgh, String url, String name, int damage, int mana){
-		super(imgx, imgy, imgw, imgh, url, name, mana);
-		this.mana = mana;
+		super(imgx, imgy, imgw, imgh, url, name,damage, mana);
 		setID(ID.Skill);
 	}
 

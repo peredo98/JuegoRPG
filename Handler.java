@@ -125,10 +125,15 @@ public class Handler{
 		Enemy enemy = null;
 		for(int i = 0; i < object.size(); i++){
 			GameObject tempObject = object.get(i);
-			if (tempObject.getID() == ID.Enemy){
+			if (tempObject.getID() == ID.Enemy || tempObject.getID() == ID.Boss){
 				enemy = (Enemy) tempObject;
-				if(enemy.getHp() < 0){
+				if(enemy.getHp() < 0 && tempObject.getID() == ID.Enemy){
 					removeObject(enemy);
+				}
+				if(enemy.getHp() < 0 && tempObject.getID() == ID.Boss){
+					removeObject(enemy);
+					System.out.println("Cogratulations you have founded the legendary taco, You have won the game");
+					System.exit(1);
 				}
 			}
 		}

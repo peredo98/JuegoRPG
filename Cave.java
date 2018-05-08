@@ -61,7 +61,9 @@ public class Cave extends Map{
 		chest1 = new Chest(x + 1027, y + 853, 0, 0, "Sprites/!Chest.png");
 		handler.addObject(1, chest1);
 		chest1.setText("You found a new item! Open your inventory to equip it.");
-		en1 = new Enemy(x + 2245, y + 220, 48, 192, "Sprites/Evil.png",20, handler);
+		en1 = new Enemy(x + 2245, y + 220, 192, 192, "Sprites/Evil.png",20, handler);
+		en1.setHp(20000);
+		en1.setID(ID.Boss);
 		handler.addObject(1,en1);
 		en2 = new Enemy(x + 980, y + 1300, 48, 0, "Sprites/Monster.png",7, handler);
 		handler.addObject(1,en2);

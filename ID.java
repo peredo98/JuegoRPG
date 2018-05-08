@@ -8,5 +8,6 @@ public enum ID{
 	Weapon(),
 	Skill(),
 	Chest(),
+	Boss(),
 	Door();
 }
