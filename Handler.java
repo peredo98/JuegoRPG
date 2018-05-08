@@ -9,6 +9,7 @@ public class Handler{
 
 	public void tick(){
 		killEnemy();
+		killPlayer();
 		for(int i = 0; i < object.size(); i++){
 			GameObject tempObject = object.get(i);
 			tempObject.tick();
@@ -108,6 +109,13 @@ public class Handler{
 					removeObject(enemy);
 				}
 			}
+		}
+	}
+	public void killPlayer(){
+		Player player = getPlayer();
+		if(player.getHp() < 0){
+			System.out.println("GG, U DED NIGGA! U HAVE DISSAPPOINTED DON CHUY!!!! MADAFAKA!!!!!");
+			System.exit(1);
 		}
 	}
 }
