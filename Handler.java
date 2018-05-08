@@ -56,10 +56,10 @@ public class Handler{
 			GameObject tempObject = object.get(i);
 			if (tempObject.getID() == ID.Dialogue){
 				removeObject(tempObject);
-				counter++;
-				events();
 			}
 		}
+		counter++;
+		events();
 	}
 	public boolean isDialogueDisplaying(){
 		boolean isDislpaying = false;
@@ -74,7 +74,29 @@ public class Handler{
 
 	public void events(){
 		if(counter == 1){
-			addObject(new Dialogue("Use W,A,S,D to move (You can't move if there is a Dialogue)"));
+			addObject(new Dialogue("You can't move if there is a Dialogue"));
+		}
+		if(counter == 2){
+			addObject(new Dialogue("You can't move if there is a Dialogue"));
+		}
+		if(counter == 3){
+			addObject(new Dialogue("Press Enter to talk with people and open chests"));
+		}
+		if(counter == 4){
+			addObject(new Dialogue("Use W,A,S,D to move"));
+		}
+		if(counter == 5){
+			addObject(new Dialogue("Press \"I\" to open Inventory and set Items by dragging"));
+		}
+		if(counter == 6){
+			addObject(new Dialogue("Press Q to use Weapon"));
+		}
+		if(counter == 7){
+			addObject(new Dialogue("Press E to use Skill"));
+		}
+		
+		if(counter == 8){
+			addObject(new Dialogue("If you loose the Game closes, BE AWARE!"));
 		}
 	}
 
