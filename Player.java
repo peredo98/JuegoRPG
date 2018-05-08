@@ -103,13 +103,13 @@ public class Player extends Character{
 		manaTimer += 1;
 
 		//Recover life if below 100
-		if(hp < 100 && hpTimer >= 100){
+		if(hp < 100 && hpTimer >= 50){
 			hp = hp + 1;
 			hpTimer = 0;
 			
 		}
 		//Recover mana if below 100
-		if(mana < 100 &&  manaTimer>= 160){
+		if(mana < 100 &&  manaTimer>= 100){
 			mana = mana + 1;
 			manaTimer = 0;
 			
