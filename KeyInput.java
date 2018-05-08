@@ -95,6 +95,17 @@ public class KeyInput extends KeyAdapter{
 				}
 			}
 
+			if(tempObject.getID() == ID.Dialogue && handler.isDialogueDisplaying()){
+				Chest tempChest = (Chest) tempObject;
+				if(key == KeyEvent.VK_ENTER && tempChest.isNearby()){
+					System.out.println("Add weapon");
+					(handler.getInventory()).addItem(new Skill(0, 128, 32, 32, "Sprites/IconSet.png", "La Secreta", 1000, 25));
+				}
+			}
+
+			// TO ADD TO INVENTORY:
+			// addItem(new Weapon(0, 192, 32, 32, "Sprites/IconSet.png", "Normal sword", 30)); = inventory.addItem(Weapon/Skill)
+
 			if(tempObject.getID() == ID.Inventory){
 				Inventory inventory = (Inventory) tempObject;
 				if(key == KeyEvent.VK_I && !inventory.getIsDisplaying() && !handler.isDialogueDisplaying()){
@@ -168,6 +179,15 @@ public class KeyInput extends KeyAdapter{
 				Npc tempNpc = (Npc) tempObject;
 				if(key == KeyEvent.VK_ENTER && tempNpc.isNearby() && !handler.isDialogueDisplaying() && !tempNpc.getIsDisplayed()){
 					handler.addObject(tempNpc.getDialogue());
+				}
+			}
+
+			if(tempObject.getID() == ID.Chest){
+				Chest tempChest = (Chest) tempObject;
+				if(key == KeyEvent.VK_ENTER && tempChest.isNearby() && !handler.isDialogueDisplaying() && !tempChest.getIsDisplayed()){
+					handler.addObject(tempChest.getDialogue());
+					System.out.println("Add weapon");
+					(handler.getInventory()).addItem(new Skill(0, 128, 32, 32, "Sprites/IconSet.png", "La Secreta", 1000, 25));
 				}
 			}
 

@@ -23,6 +23,7 @@ public class Inventory extends GameObject{
 		addItem(new Weapon(0, 192, 32, 32, "Sprites/IconSet.png", "Normal sword", 30));
 		addItem(new Weapon(416, 128, 32, 32, "Sprites/IconSet.png", "Punch", 10));
 		addItem(new Skill(0, 128, 32, 32, "Sprites/IconSet.png", "Fire Attack", 50, 10));
+		//addItem(new Skill(0, 128, 32, 32, "Sprites/IconSet.png", "La Secreta", 1000, 25));
 	}
 
 	public void setIsDisplaying(boolean isDisplaying){
