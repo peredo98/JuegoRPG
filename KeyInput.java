@@ -8,6 +8,7 @@ public class KeyInput extends KeyAdapter{
 	private int changeRate = 5;
 	private int vel = 3;
 	private Player player;
+	private int chestCounter = 0;
 
 	public KeyInput(Handler handler){
 		this.handler = handler;
@@ -208,7 +209,24 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_ENTER && tempChest.isNearby() && !handler.isDialogueDisplaying() && !tempChest.getIsDisplayed()){
 					handler.addObject(tempChest.getDialogue());
 					System.out.println("Add weapon");
-					(handler.getInventory()).addItem(new Skill(0, 128, 32, 32, "Sprites/IconSet.png", "La Secreta", 1000, 25));
+
+					switch(chestCounter){
+						case 0:
+						(handler.getInventory()).addItem(new Weapon(352, 224, 32, 32, "Sprites/IconSet.png", "Iron Sword", 40));
+						chestCounter += 1;
+						break;
+						case 1:
+						(handler.getInventory()).addItem(new Weapon(288, 192, 32, 32, "Sprites/IconSet.png", "Iron Gloves", 24));
+						chestCounter += 1;
+						break;
+						case 2:
+						(handler.getInventory()).addItem(new Skill(320, 0, 32, 32, "Sprites/IconSet.png", "ONE PUNCH", 10000, 1));
+						chestCounter += 1;
+						break;
+						default:
+						System.out.println("This chest is empty!");
+					} //End of switch
+					
 				}
 			}
 
