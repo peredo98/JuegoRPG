@@ -26,8 +26,8 @@ public class Player extends Character{
 		this.anim3 = imgx + 48;
 		setID(ID.Player);
 		setUrl("Sprites/Actor1.png");
-		setHp(75);
-		setMana(60);
+		setHp(100);
+		setMana(100);
 		setHpTimer(0);
 		setManaTimer(0);
 	}
